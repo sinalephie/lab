@@ -16,7 +16,8 @@ rispostacorretta='https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630c
 
 #FUNZIONI
 def importa(link):
-    wget.download(link)
+    import lab.wgetmod 
+    lab.wgetmod.download(link)
     return
 
 
