@@ -197,4 +197,5 @@ def download(url, out=None, bar=bar_adaptive):
       else:
           filename = names["out"] or names["header"] or names["url"]
     shutil.move(tmpfile, filename)
+    return filename
 
