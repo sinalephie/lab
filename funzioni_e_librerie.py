@@ -15,6 +15,11 @@ rispostacorretta='https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630c
 
 
 #FUNZIONI
+def importa(link):
+    wget.download(link)
+    return
+
+
 
 def guida():
     print('https://colab.research.google.com/drive/1Lace8ZenxKYWlCYEODxErVbPpABbGp4G?usp=sharing')
