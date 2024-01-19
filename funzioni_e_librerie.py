@@ -13,7 +13,7 @@ from termcolor import colored
 #VARIABILI
 rispostacorretta='https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=short-success-sound-glockenspiel-treasure-video-game-6346.mp3'
 
-
+#CIAOOO
 #FUNZIONI
 def importa(link):
     import lab.wgetmod 
