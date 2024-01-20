@@ -402,8 +402,6 @@ def fit(x,sx,y,sy,**kwargs):
         lex=np.array([kwargs['xsinistra']*scalasinistra,kwargs['xdestra']*scaladestra])
         ley=pendenza*lex + intercetta
         plt.plot(lex,ley,**opzioniplot)
-        if len(sy) != len(x):
-            raise ValueError('il numero di incertezze inserite per le misure in ordinata è diverso dalla numerosità delle misure, se le misure in ordinata hanno tutte la stessa incertezza è possibile insererire il singolo valore in argomento.')
       return [[intercetta,erroreintercetta],[pendenza,errorependenza]]
   def caso3(x,sx,y,sy):
       if isinstance (sy, (float, int)):
@@ -487,7 +485,7 @@ def fit(x,sx,y,sy,**kwargs):
 
   if sx == 0 and not isinstance (sy, (float,int)):
       if len(sy) != len(x):
-          raise ValueError('il numero di incertezze inserite per le misure in ordinata è diverso dalla numerosità delle misure')
+          raise ValueError('il numero di incertezze inserite per le misure in ordinata è diverso dalla numerosità delle misure, se le misure in ordinata hanno tutte la stessa incertezza è possibile insererire il singolo valore in argomento.')
           return 
       return caso2(x,y,sy)
 
