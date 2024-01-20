@@ -363,7 +363,8 @@ def fit(x,sx,y,sy,**kwargs):
     kwargs['plot']=False
   N=len(x) #  Numerosità
   if len(x)!=len(y):
-    return print('la numerosità delle misure in ascissa è diverse da quelle in ordinata')
+      raise ValueError('la numerosità delle misure in ascissa è diverse da quelle in ordinata')
+      return 
   scalasinistra=0.95
   if min(x)<0:
     scalasinistra=1.05
@@ -401,6 +402,8 @@ def fit(x,sx,y,sy,**kwargs):
         lex=np.array([kwargs['xsinistra']*scalasinistra,kwargs['xdestra']*scaladestra])
         ley=pendenza*lex + intercetta
         plt.plot(lex,ley,**opzioniplot)
+        if len(sy) != len(x):
+            raise ValueError('il numero di incertezze inserite per le misure in ordinata è diverso dalla numerosità delle misure')
       return [[intercetta,erroreintercetta],[pendenza,errorependenza]]
   def caso3(x,sx,y,sy):
       if isinstance (sy, (float, int)):
@@ -421,11 +424,12 @@ def fit(x,sx,y,sy,**kwargs):
           for c in range(0,len(x)):
               sx.append(incertezzasingola)
       if len(sy) != len(x):
-          print('il numero di incertezze inserite per le misure in ordinata è diverso dalla numerosità delle misure')
+          raise ValueError('il numero di incertezze inserite per le misure in ordinata è diverso dalla numerosità delle misure')
       if len(sx) != len(x):
-          print('il numero di incertezze inserite per le misure in ascissa è diverso dalla numerosità delle misure')
+          raise ValueError('il numero di incertezze inserite per le misure in ascissa è diverso dalla numerosità delle misure')
       if len(sx) != len(x) or len(sy) != len(x):
-          return print('controlla i dati e riprova')
+          print('controlla i dati e riprova')
+          return 
       si=potenza(somma(potenza(sy,2),moltiplica(b**2,potenza(sx,2))),0.5)
       delta=somma(moltiplica(1,potenza(si,-2)))*somma(moltiplica(potenza(x,2),potenza(si,-2)))-(somma(moltiplica(x,potenza(si,-2))))**2
       intercetta=(1/delta)*(somma(moltiplica(potenza(x,2),potenza(si,-2)))*somma(moltiplica(y,potenza(si,-2)))-somma(moltiplica(x,potenza(si,-2)))*somma(moltiplica(x,y,potenza(si,-2))))
@@ -511,6 +515,7 @@ def excel(lista, stringa):
     return  df.to_excel(nomefile, index=False)
 
 def minimirelativi(lista,**kwargs):
+    import numpy as np
     if not 'contrario' in kwargs:
         kwargs['contrario']=False
     if not 'soglia' in kwargs:
@@ -539,13 +544,14 @@ def minimirelativi(lista,**kwargs):
           testo=f'{c}'
           plt.text(x1[c],y1[c],testo,fontsize=kwargs['fontsize'],ha='center',va='bottom',color='purple')
     if kwargs['indici']==True:
-        return indici
+        return np.array(indici)
     else:
         return minimi
 
 
 
 def massimirelativi(lista,**kwargs):
+    import numpy as np
     if not 'contrario' in kwargs:
         kwargs['contrario']=False
     if not 'soglia' in kwargs:
@@ -574,7 +580,7 @@ def massimirelativi(lista,**kwargs):
           testo=f'{c}'
           plt.text(x1[c],y1[c],testo,fontsize=kwargs['fontsize'],ha='center',va='bottom',color='purple')
     if kwargs['indici']==True:
-        return indici
+        return np.array(indici)
     else:
         return massimi
 
