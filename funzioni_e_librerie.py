@@ -24,7 +24,6 @@ def importa(link):
 
 def guida():
     print('https://colab.research.google.com/drive/1Lace8ZenxKYWlCYEODxErVbPpABbGp4G?usp=sharing')
-    print('ciao')
 
 
 #STAMPA (print) ma piu figa (grazie chatgpt)
@@ -488,7 +487,8 @@ def fit(x,sx,y,sy,**kwargs):
 
   if sx == 0 and not isinstance (sy, (float,int)):
       if len(sy) != len(x):
-          return print('il numero di incertezze inserite per le misure in ordinataaa è diverso dalla numerosità delle misure')
+          raise ValueError('il numero di incertezze inserite per le misure in ordinata è diverso dalla numerosità delle misure')
+          return 
       return caso2(x,y,sy)
 
   else:
