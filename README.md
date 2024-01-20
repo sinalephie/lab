@@ -15,8 +15,11 @@
     L'alternativa è eseguire queste righe:
 
     ```python
-    import urllib.request, zipfile, os,shutil; urllib.request.urlretrieve('https://codeload.github.com/sinalephie/lab/zip/refs/heads/main', 'lab.zip')
-	if os.path.exists('lab'): shutil.rmtree('lab'); zipfile.ZipFile('lab.zip', 'r').extractall('lab1'); os.remove('lab.zip'); shutil.move('lab1/lab-main', 'lab'); shutil.rmtree('lab1'
+	import urllib.request, zipfile, os,shutil
+	try: 
+    		urllib.request.urlretrieve('https://codeload.github.com/sinalephie/lab/zip/refs/heads/main', 'lab.zip'); 
+    		if os.path.exists('lab'): shutil.rmtree('lab'); zipfile.ZipFile('lab.zip', 'r').extractall('lab1'); os.remove('lab.zip'); shutil.move('lab1/lab-main', 'lab'); shutil.rmtree('lab1')
+	except: pass
 
     ```
 Successivamente per **importare le funzioni** cosi come le librerie basta copiare questa riga sul proprio progetto, quando vengono create nuove funzioni bisognerà dichiararle
