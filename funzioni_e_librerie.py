@@ -485,7 +485,11 @@ def fit(x,sx,y,sy,**kwargs):
 
   if sx == 0 and not isinstance (sy, (float,int)):
       if len(sy) != len(x):
-          raise ValueError('il numero di incertezze inserite per le misure in ordinata è diverso dalla numerosità delle misure, se le misure in ordinata hanno tutte la stessa incertezza è possibile insererire il singolo valore in argomento.')
+          mess='''
+          il numero di incertezze inserite per le misure in ordinata è diverso dalla numerosità delle misure.
+          se le misure in ordinata hanno tutte la stessa incertezza è possibile insererire il singolo valore in argomento.
+          '''
+          raise ValueError(mess)
           return 
       return caso2(x,y,sy)
 
