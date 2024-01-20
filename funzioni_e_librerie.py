@@ -24,6 +24,7 @@ def importa(link):
 
 def guida():
     print('https://colab.research.google.com/drive/1Lace8ZenxKYWlCYEODxErVbPpABbGp4G?usp=sharing')
+    print('ciao')
 
 
 #STAMPA (print) ma piu figa (grazie chatgpt)
