@@ -62,15 +62,13 @@ def stampa(*frasi_grandezze_colore):
                     frase, grandezza, colore = elemento[0], elemento[1], elemento[2]
         else:
             frase = str(elemento)
+
         stile = f"style='font-size: {grandezza}px; display: inline-block; color: {colore}; white-space: pre;'"
-        html_code = (
-            "<html><head>"
-            "<script type='text/javascript' async "
-            "src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML'></script>"
-            "</head><body>"
-        )
-        html_code += f"<p><span {stile}>{frase}</span></p></body></html>"
-    display(HTML(html_code))
+        frase_formattata = frase.format(f=frase) if '{f}' in frase else frase
+        testo_stili_multipli += f"<span {stile}>{frase_formattata}</span>"
+
+    display(HTML(testo_stili_multipli))
+
 
 
 
