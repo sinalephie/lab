@@ -1,11 +1,11 @@
-# Prerequisiti
-Se utilizzate **Google Colab** siete apposto. 
-altrimenti
-Le librerie necessarie da aver installato sono:
-
-	* 
- 	*
-   	*
+# Prerequisiti 
+* ## se siete su Google Colab siete apposto
+* ## Altrimenti
+	Le librerie necessarie da aver installato sono:
+	
+	* ciao
+	* ciao
+	* ciao
 # Come importare il modulo e le varie funzioni
 * ## **Google Colab**
   
