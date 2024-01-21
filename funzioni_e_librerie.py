@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import scipy as sp
 import numpy as np
-from IPython.display import Audio, HTML
+from IPython.display import Audio, HTML, Latex
 import math
 from numpy import sin,cos,tan,arcsin,arctan,arccos
 import requests
@@ -62,7 +62,13 @@ def stampa(*frasi_grandezze_colore):
                     frase, grandezza, colore = elemento[0], elemento[1], elemento[2]
         else:
             frase = str(elemento)
-
+    def Latexify(match):
+        return f'Latex({match.group(0)})'
+    def LatexifyString(input_string):
+        pattern = re.compile(r'\${2}.*?\${2}|\$.+?\$')
+        result = re.sub(pattern, Latexify, input_string)
+        return result
+        frase=LatexifyString(frase)
         stile = f"style='font-size: {grandezza}px; display: inline-block; color: {colore}; white-space: pre;'"
         frase_formattata = frase.format(f=frase) if '{f}' in frase else frase
         testo_stili_multipli += f"<span {stile}>{frase_formattata}</span>"
