@@ -1,6 +1,7 @@
 # Prerequisiti
 Le librerie necessarie sono:
-	*
+
+	* 
  	*
    	*
 # Come importare il modulo e le varie funzioni
