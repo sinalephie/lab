@@ -32,3 +32,4 @@
 		from lab.funzioni_e_librerie import pd,plt,sp,np,Audio,HTML,math,requests,BytesIO,colored,potenza,moltiplica,somma,fit,excel,mediapesata,compatibilità,stampa,suona,rispostacorretta,std,chi2retta,media,pearson,stdmedia,massimirelativi,minimirelativi,chi2,curve_fit,posterioriretta,importa,guida
 	
 	    ```
+  		in questo modo si ha sempre l'ultimo aggiornamento delle varie funzioni
