@@ -1,5 +1,7 @@
 # Prerequisiti
-Le librerie necessarie sono:
+Se utilizzate **Google Colab** siete apposto. 
+altrimenti
+Le librerie necessarie da aver installato sono:
 
 	* 
  	*
