@@ -10,7 +10,8 @@ from numpy import sin,cos,tan,arcsin,arctan,arccos
 import requests
 from io import BytesIO
 from termcolor import colored
-from lab.uncertainties.core import ufloat, correlated_values
+from lab.librerie_aggiuntive.uncertainties.core import ufloat, correlated_values
+from lab.librerie_aggiuntive.wgetmod as wget
 #VARIABILI
 rispostacorretta='https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=short-success-sound-glockenspiel-treasure-video-game-6346.mp3'
 
@@ -18,7 +19,7 @@ rispostacorretta='https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630c
 #FUNZIONI
 def importa(link):
     import lab.wgetmod 
-    lab.wgetmod.download(link)
+    wget.download(link)
     return
 
 
