@@ -1,7 +1,7 @@
 # Prerequisiti 
 * ## se siete su Google Colab siete apposto
 * ## Altrimenti
-	Le librerie necessarie da aver installato sono:
+	Le librerie necessarie sono:
 	
 	* ciao
 	* ciao
