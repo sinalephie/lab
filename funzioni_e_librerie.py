@@ -10,6 +10,7 @@ from numpy import sin,cos,tan,arcsin,arctan,arccos
 import requests
 from io import BytesIO
 from termcolor import colored
+from lab.uncertainties.core import ufloat, correlated_values
 #VARIABILI
 rispostacorretta='https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=short-success-sound-glockenspiel-treasure-video-game-6346.mp3'
 
