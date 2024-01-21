@@ -34,5 +34,7 @@
 	    ```
   		in questo modo si ha sempre l'ultimo aggiornamento delle varie funzioni
 
-#Come usare le funzioni
+
+
+# Come usare le funzioni
 loading
