@@ -1,5 +1,5 @@
 # Come importare il modulo e le varie funzioni
-* **Google Colab**
+* ## **Google Colab**
   
 	nella prima riga di ogni progetto:
     ```python
@@ -8,7 +8,7 @@
 
     ```
 
-* **Altri (Jupyter Notebook, Vscode, Xcode...)**
+* ## **Altri (Jupyter Notebook, Vscode, Xcode...)**
 
     * Se avete GitHub installato (è buono averlo: [GitHub Desktop](https://desktop.github.com/)), dal terminale:
 
