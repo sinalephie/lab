@@ -25,6 +25,7 @@ def importa(link):
       urllib.request.urlopen("https://www.google.com", timeout=3)
   except:
       print('Sei offline, connettiti ad internet per importare i dati')
+      return
   if 'google' and 'edit' in link:
     file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
     file_id = file_id_match.group(1) if file_id_match else None
