@@ -44,6 +44,7 @@ def importa(link):
 
 
 def guida():
+    print('link alla guida funzioni \u2193 \u2193 \u2193')
     print('https://colab.research.google.com/drive/1Lace8ZenxKYWlCYEODxErVbPpABbGp4G?usp=sharing')
 
 
