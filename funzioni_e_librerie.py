@@ -32,14 +32,14 @@ def importa(link):
     link = f"https://drive.google.com/uc?export=download&id={file_id}"
   if '1drv' and not 'files' in link:
     link='https://api.onedrive.com/v1.0/shares/s!'+ link[link.find('!')+1:link.find('?')]+'/root/content'
-  if not os.path.exists('Dati'):
-    os.makedirs('Dati')
-  percorso=os.path.join(os.getcwd(), 'Dati')
+  if not os.path.exists('Datiis'):
+    os.makedirs('Datiis')
+  percorso=os.path.join(os.getcwd(), 'Datiis')
   percorso=percorso + '/'
   c='dati.xlsx'
   urllib.request.urlretrieve(link, percorso+c)
   Dataframe=pd.read_excel(f'{percorso+c}')
-  shutil.rmtree('Dati')
+  shutil.rmtree('Datiis')
   return Dataframe
 
 
