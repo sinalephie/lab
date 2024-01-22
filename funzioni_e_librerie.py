@@ -18,9 +18,23 @@ rispostacorretta='https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630c
 #CIAOOO
 #FUNZIONI
 def importa(link):
-    import lab.wgetmod 
-    lab.librerie_aggiuntive.wgetmod.download(link)
-    return
+  import os, re, urllib,shutil
+  import pandas as pd
+  if 'google' and 'edit' in link:
+    file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
+    file_id = file_id_match.group(1) if file_id_match else None
+    link = f"https://drive.google.com/uc?export=download&id={file_id}"
+  if '1drv' and not 'files' in link:
+    link='https://api.onedrive.com/v1.0/shares/s!'+ link[link.find('!')+1:link.find('?')]+'/root/content'
+  if not os.path.exists('Dati'):
+    os.makedirs('Dati')
+  percorso=os.path.join(os.getcwd(), 'Dati')
+  percorso=percorso + '/'
+  c='dati.xlsx'
+  urllib.request.urlretrieve(link, percorso+c)
+  Dataframe=pd.read_excel(f'{percorso+c}')
+  shutil.rmtree('Dati')
+  return Dataframe
 
 
 
