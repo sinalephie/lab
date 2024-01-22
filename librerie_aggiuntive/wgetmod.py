@@ -34,7 +34,13 @@ def filename_from_headers(headers):
         return None
     # several filename params is illegal, but just in case
     fnames = [x for x in cdtype[1:] if x.strip().startswith('filename=')]
-
+    if len(fnames) > 1:
+        return None
+    name = fnames[0].split('=')[1].strip(' \t"')
+    name = os.path.basename(name)
+    if not name:
+        return None
+    return name
 
 # --- terminal/console output helpers ---
 
