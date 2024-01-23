@@ -37,6 +37,7 @@ def importa(link):
   percorso=os.path.join(os.getcwd(), 'Datiis')
   percorso=percorso + '/'
   c='dati.xlsx'
+  print(link)
   urllib.request.urlretrieve(link, percorso+c)
   Dataframe=pd.read_excel(f'{percorso+c}')
   shutil.rmtree('Datiis')
