@@ -13,6 +13,7 @@ from termcolor import colored
 from labs.librerie_aggiuntive.uncertainties.core import ufloat, correlated_values
 try:
   from google.colab import output
+  is_dark = output.eval_js('document.documentElement.matches("[theme=dark]")')
 except ModuleNotFoundError:
   pass
 
@@ -60,7 +61,6 @@ def guida():
 #                        stampa([f'la tua misura è {misura}','blue'])
 def stampa(*frasi_grandezze_colore):
     try:
-        is_dark = output.eval_js('document.documentElement.matches("[theme=dark]")')
         if is_dark:
           colore='white'
         if not is_dark:
