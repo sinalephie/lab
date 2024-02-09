@@ -11,6 +11,10 @@ import requests
 from io import BytesIO
 from termcolor import colored
 from labs.librerie_aggiuntive.uncertainties.core import ufloat, correlated_values
+try:
+  from google.colab import output
+except ModuleNotFoundError:
+  pass
 
 #VARIABILI
 rispostacorretta='https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=short-success-sound-glockenspiel-treasure-video-game-6346.mp3'
@@ -56,7 +60,6 @@ def guida():
 #                        stampa([f'la tua misura è {misura}','blue'])
 def stampa(*frasi_grandezze_colore):
     try:
-        from google.colab import output
         is_dark = output.eval_js('document.documentElement.matches("[theme=dark]")')
         if is_dark:
           colore='white'
