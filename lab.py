@@ -55,17 +55,7 @@ def guida():
 #                        misura=40
 #                        stampa([f'la tua misura è {misura}','blue'])
 def stampa(*frasi_grandezze_colore):
-    try:
-        from google.colab import output
-        is_dark = output.eval_js('document.documentElement.matches("[theme=dark]")')
-        if is_dark:
-          colore='white'
-        if not is_dark:
-          colore='black'
-        else:
-          colore='white'
-    except ModuleNotFoundError:
-        colore='grey'
+    colore='white'
     testo_stili_multipli = ""
     grandezza = 18
     frase = ''
