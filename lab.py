@@ -62,17 +62,18 @@ def guida():
 def stampa(*frasi_grandezze_colore):
     try:
         if is_dark:
-          colore='white'
+          color='white'
         if not is_dark:
-          colore='black'
+          color='black'
         else:
-          colore='white'
+          color='white'
     except ModuleNotFoundError:
-        colore='grey'
+        color='grey'
     testo_stili_multipli = ""
-    grandezza = 18
     frase = ''
     for elemento in frasi_grandezze_colore:
+        grandezza = 18
+        colore=color
         if isinstance(elemento, (tuple, list)):
             if len(elemento) == 1:
                 frase = elemento[0]
