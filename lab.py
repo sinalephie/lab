@@ -29,7 +29,7 @@ def importa(link):
   try:
       urllib.request.urlopen("https://www.google.com", timeout=3)
   except:
-      print('Sei offline, connettiti ad internet per importare i dati')
+      raise ImportError('Sei offline, connettiti ad internet per importare i dati')
       return
   if 'google' and 'edit' in link:
     file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
