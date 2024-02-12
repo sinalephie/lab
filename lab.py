@@ -625,9 +625,9 @@ def massimirelativi(lista,**kwargs):
 #   SINTASSI: suona('www.ciao.mp3')
 #   trovare link suoni: trovate un suono e lo scaricate, dal browser: tasto destro nel file scaricato e fate copia link download (almeno da edge)
 def suona(link):
-  if link == 'capra'
+  if link == 'capra':
     link = 'https://cdn.pixabay.com/download/audio/2023/11/20/audio_6d2ecb8b19.mp3?filename=goat-sound-177346.mp3'
-  if link == 'risposta corretta'
+  if link == 'risposta corretta':
     link = 'https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=short-success-sound-glockenspiel-treasure-video-game-6346.mp3'
   response = requests.get(link)
   audio_data = BytesIO(response.content)
