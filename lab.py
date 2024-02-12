@@ -636,7 +636,8 @@ def suona(link):
   elenco = ", ".join(suoni.keys())
   if link=='elenco':
     print(elenco)
-  if isinstance(link, str) and presente==False and link!='elenco':
+    return
+  if isinstance(link, str) and presente==False:
     raise ValueError('Questo suono non è stato ancora aggiunto, per visualizzare l\'elenco con tutti i suoni metti in argomento \'elenco\'')
     return
   response = requests.get(link)
