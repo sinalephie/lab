@@ -629,7 +629,7 @@ def suona(link):
   suoni['capra'] = 'https://cdn.pixabay.com/download/audio/2023/11/20/audio_6d2ecb8b19.mp3?filename=goat-sound-177346.mp3'
   suoni['risposta corretta'] = 'https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=short-success-sound-glockenspiel-treasure-video-game-6346.mp3'
   for c in suoni:
-    if c==suoni:
+    if link==c:
       link=c[1]
   elenco = ", ".join(suoni.keys())
   if link=='elenco':
