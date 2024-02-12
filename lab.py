@@ -633,9 +633,9 @@ def suona(link):
     if link==c:
       link=d
       presente=True
-  elenco = ", ".join(suoni.keys())
+  elenco = ', '.join('"{0}"'.format(key) for key in my_dict.keys())
   if link=='elenco':
-    print(elenco)
+    print('l\'elenco dei suoni disponibili è', elenco)
     return
   if isinstance(link, str) and presente==False:
     raise ValueError('Questo suono non è stato ancora aggiunto, per visualizzare l\'elenco con tutti i suoni metti in argomento \'elenco\'')
