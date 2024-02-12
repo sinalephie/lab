@@ -36,7 +36,7 @@ def guarda(link):
   if isinstance(link, str) and presente==False:
     raise ValueError('Questa immagine non è stato ancora aggiunto, per visualizzare l\'elenco con tutte le immagini metti in argomento \'elenco\'')
     return
-  display(Image(link, width=300, height=200))  
+  display(Image(link, width=300))  
 
 #FUNZIONI
 def importa(link):
