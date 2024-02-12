@@ -21,7 +21,9 @@ except ModuleNotFoundError:
 rispostacorretta='https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=short-success-sound-glockenspiel-treasure-video-game-6346.mp3'
 capra='https://cdn.pixabay.com/download/audio/2023/11/20/audio_6d2ecb8b19.mp3?filename=goat-sound-177346.mp3'
 #CIAOOO
-def guarda(link):
+def guarda(link,**kwargs):
+  if 'size' not in kwargs:
+    kwargs['size']=200
   presente=False
   immagini = {}
   immagini['capra'] = 'https://styles.redditmedia.com/t5_2qlyf/styles/communityIcon_w3vaehlvt5i11.jpg'
@@ -36,7 +38,7 @@ def guarda(link):
   if isinstance(link, str) and presente==False:
     raise ValueError('Questa immagine non è stato ancora aggiunto, per visualizzare l\'elenco con tutte le immagini metti in argomento \'elenco\'')
     return
-  display(Image(link, width=200))  
+  display(Image(link, width=kwargs['size']))  
 
 #FUNZIONI
 def importa(link):
