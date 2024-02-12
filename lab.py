@@ -633,7 +633,7 @@ def suona(link):
     if link==c:
       link=d
       presente=True
-  elenco = ', '.join('"{0}"'.format(key) for key in my_dict.keys())
+  elenco = ', '.join('"{0}"'.format(key) for key in suoni.keys())
   if link=='elenco':
     print('l\'elenco dei suoni disponibili è', elenco)
     return
