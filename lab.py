@@ -27,7 +27,7 @@ immagini['cane meme 1'] = 'https://drive.usercontent.google.com/download?id=1e9J
 suoni = {}
 suoni['capra'] = 'https://cdn.pixabay.com/download/audio/2023/11/20/audio_6d2ecb8b19.mp3?filename=goat-sound-177346.mp3'
 suoni['risposta corretta'] = 'https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=short-success-sound-glockenspiel-treasure-video-game-6346.mp3'
-suoni['yumi'] = 'https://drive.usercontent.google.com/download?id=1p9MUiXf66fshnBK_e3mRoWUcg76rk-8d&export=download&authuser=0&confirm=t&uuid=67860114-2fd5-40a7-8870-4975f139ef92&at=APZUnTW0mMarRuQqQ3pOUK68oE8S:1707910204783'
+suoni['yumi'] = 'https://drive.usercontent.google.com/download?id=1TYoZtfyXbDXGvBavp9RiizbyN5c3U_-A&export=download&authuser=0&confirm=t&uuid=3a4c1d91-4195-4fae-b9e5-0597cb84ab03&at=APZUnTUABAkfF1JVWil1TEKAXY4Y:1707948945711'
 
 
 #CIAOOO
