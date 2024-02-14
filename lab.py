@@ -22,7 +22,7 @@ except ModuleNotFoundError:
 immagini = {}
 immagini['capra'] = 'https://styles.redditmedia.com/t5_2qlyf/styles/communityIcon_w3vaehlvt5i11.jpg'
 immagini['mucca'] = 'https://www.fondazionevb.org/media/cache/582_436_inset/uploads/contents/dona-una-mucca-alle-donne-di-mutanu_1679318060.png'
-immagini['cane meme 1'] = 'https://drive.usercontent.google.com/download?id=1e9JfWwc6xPF1V5HE6CAHRpazE4pDyAxE&export=download&authuser=0&confirm=t&uuid=d22a9e8b-c801-45ae-8e7e-04242da69a41&at=APZUnTXZkgSgjg_8mCB8oqmy32Kl:1707914900204'
+immagini['cane meme 1'] = 'https://drive.usercontent.google.com/download?id=1e9JfWwc6xPF1V5HE6CAHRpazE4pDyAxE&export=download&authuser=0&confirm=t&uuid=647c5e38-638c-4b42-820b-3bb87d517b89&at=APZUnTWjN1-DCcd3D61EV8pt83qu:1707914989499'
 
 # Suoni
 suoni = {}
