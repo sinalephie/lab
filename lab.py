@@ -22,8 +22,6 @@ except ModuleNotFoundError:
 immagini = {}
 immagini['capra'] = 'https://styles.redditmedia.com/t5_2qlyf/styles/communityIcon_w3vaehlvt5i11.jpg'
 immagini['mucca'] = 'https://www.fondazionevb.org/media/cache/582_436_inset/uploads/contents/dona-una-mucca-alle-donne-di-mutanu_1679318060.png'
-immagini['cane meme 1'] = 'https://drive.usercontent.google.com/download?id=1e9JfWwc6xPF1V5HE6CAHRpazE4pDyAxE&export=download&authuser=0&confirm=t&uuid=647c5e38-638c-4b42-820b-3bb87d517b89&at=APZUnTWjN1-DCcd3D61EV8pt83qu:1707914989499'
-
 # Suoni
 suoni = {}
 suoni['capra'] = 'https://cdn.pixabay.com/download/audio/2023/11/20/audio_6d2ecb8b19.mp3?filename=goat-sound-177346.mp3'
@@ -48,7 +46,6 @@ def guarda(*links,**kwargs):
     if isinstance(link, str) and presente==False and len(link)<30:
       raise ValueError(f'{link} non è stata/o ancora aggiunta/o, per visualizzare l\'elenco con tutte le immagini metti in argomento \'elenco\'')
       return
-    print(link)
     display(Image(link, width=kwargs['size']))  
 
 #FUNZIONI
