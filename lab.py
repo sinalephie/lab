@@ -48,6 +48,7 @@ def guarda(*links,**kwargs):
     if isinstance(link, str) and presente==False and len(link)<30:
       raise ValueError(f'{link} non è stata/o ancora aggiunta/o, per visualizzare l\'elenco con tutte le immagini metti in argomento \'elenco\'')
       return
+    print(link)
     display(Image(link, width=kwargs['size']))  
 
 #FUNZIONI
