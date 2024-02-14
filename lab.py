@@ -53,7 +53,7 @@ def guarda(*links,**kwargs):
 
 
 #FUNZIONI
-def importa(link):
+def importa_old(link):
   import os, re, urllib,shutil
   import pandas as pd
   
@@ -82,6 +82,34 @@ def importa(link):
   Dataframe=pd.read_excel(f'{percorso+c}')
   shutil.rmtree('Datiis')
   return Dataframe
+
+def importa(link):
+  import os, re, urllib,shutil
+  import pandas as pd
+  
+  try:
+      urllib.request.urlopen("https://www.google.com", timeout=3)
+  except:
+      raise ImportError('Sei offline, connettiti ad internet per importare i dati')
+      return
+  if 'google' and 'edit' and not 'docs' in link:
+    file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
+    file_id = file_id_match.group(1) if file_id_match else None
+    link = f"https://drive.google.com/uc?export=download&id={file_id}"
+  if 'google' and 'docs' in link:
+    file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
+    file_id = file_id_match.group(1) if file_id_match else None
+    link='https://docs.google.com/spreadsheets/d/'+ file_id + '/export?format=xlsx'
+  if '1drv' in link:
+    if 'files' in link:
+      link='https://api.onedrive.com/v1.0/shares/s!'+ link[link.find('!')+1:link.find('?')]+'/root/content'
+  response = requests.get(link)
+  data = BytesIO(response.content)
+  Dataframe=pd.read_excel(data.read())
+  return Dataframe
+
+
+
 
 
 def guida():
