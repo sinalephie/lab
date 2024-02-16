@@ -20,11 +20,13 @@
 
     ```python
 	import urllib.request, zipfile, os,shutil
-	try:
-	urllib.request.urlretrieve('https://codeload.github.com/sinalephie/labs/zip/refs/heads/main', 'labs.zip'); 
-	if os.path.exists('labs'): shutil.rmtree('labs'); zipfile.ZipFile('labs.zip', 'r').extractall('labs1'); os.remove('labs.zip'); shutil.move('labs1/labs-main', 'labs'); shutil.rmtree('labs1')
-	except: pass
-	from labs.lab import pd,plt,sp,np,Audio,HTML,math,requests,BytesIO,colored,potenza,moltiplica,somma,fit,excel,mediapesata,compatibilità,stampa,suona,rispostacorretta,std,chi2retta,media,pearson,stdmedia,massimirelativi,minimirelativi,chi2,curve_fit,posterioriretta,importa,guida
+    try: 
+    	urllib.request.urlretrieve('https://codeload.github.com/sinalephie/labs/zip/refs/heads/main', 'labs.zip'); 
+    	if os.path.exists('labs'): 
+        		shutil.rmtree('labs')
+    	zipfile.ZipFile('labs.zip', 'r').extractall('labs1'); os.remove('labs.zip'); shutil.move('labs1/labs-main', 'labs'); shutil.rmtree('labs1')
+    except: pass
+    from labs.lab import pd,plt,sp,np,math,potenza,moltiplica,somma,fit,excel,mediapesata,compatibilità,stampa,suona,std,chi2retta,media,pearson,stdmedia,massimirelativi,minimirelativi,chi2,curve_fit,posterioriretta,importa,guida,ufloat,correlated_values,guarda
 
     ```
   in questo modo si ha sempre l'ultimo aggiornamento delle varie funzioni
