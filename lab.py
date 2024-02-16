@@ -53,7 +53,7 @@ def guarda(*links,**kwargs):
 
 
 #FUNZIONI
-def importa_old(link):
+def importa_old(link): #obsoleta
   import os, re, urllib,shutil
   import pandas as pd
   
