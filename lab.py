@@ -105,7 +105,7 @@ def importa(link):
       link='https://api.onedrive.com/v1.0/shares/s!'+ link[link.find('!')+1:link.find('?')]+'/root/content'
   response = requests.get(link)
   data = BytesIO(response.content)
-  Dataframe=pd.read_excel(data.read())
+  Dataframe=pd.read_excel(data)
   return Dataframe
 
 
