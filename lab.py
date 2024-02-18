@@ -54,14 +54,14 @@ def guarda(*links,**kwargs):
     data = BytesIO(response.content)
     if kwargs['latex']==True:
       img = mpimg.imread(data)
-      ratio = (img.shape[1] / img.shape[0])*kwargs['size']
-      plt.figure(figsize=(ratio, kwargs['size']*0.01))
+      ratio = (img.shape[1] / img.shape[0])
+      plt.figure(figsize=(ratio*kwargs['size']*0.01, kwargs['size']*0.01))
       plt.imshow(img)
       plt.axis('off')
       plt.show()
     else:
       display(Image(data=data.read(),width=kwargs['size']))
-
+ 
 #FUNZIONI
 def importa_old(link): #obsoleta
   import os, re, urllib,shutil
