@@ -32,6 +32,8 @@ suoni['yumi'] = 'https://drive.usercontent.google.com/download?id=1TYoZtfyXbDXGv
 
 #CIAOOO
 def guarda(*links,**kwargs):
+  if 'latex' not in kwargs:
+    kwargs['latex']=False
   if 'size' not in kwargs:
     kwargs['size']=200
   for link in links:
@@ -49,8 +51,15 @@ def guarda(*links,**kwargs):
       return
     response = requests.get(link)
     data = BytesIO(response.content)
-    display(Image(data=data.read(),width=kwargs['size']))
-
+    if kwargs['latex']==True:
+      img = mpimg.imread(data)
+      ratio = (img.shape[1] / img.shape[0])*kwargs['size']
+      plt.figure(figsize=(ratio, kwargs['size']*0.01))
+      plt.imshow(img)
+      plt.axis('off')
+      plt.show()
+    else:
+      display(Image(data=data.read(),width=kwargs['size']))
 
 #FUNZIONI
 def importa_old(link): #obsoleta
