@@ -2,6 +2,7 @@
 from scipy.optimize import curve_fit
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 import scipy as sp
 import numpy as np
 from IPython.display import Audio, HTML, Latex, display, Image
