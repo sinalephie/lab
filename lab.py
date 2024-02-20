@@ -39,7 +39,7 @@ def linkdiretto(link):
   except:
       raise ImportError('Sei offline, connettiti ad internet per importare dati')
       return
-  if 'google' and 'edit' and not 'docs' in link:
+  if 'google' and 'edit' and not 'docs' and not 'usercontent' in link:
     file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
     file_id = file_id_match.group(1) if file_id_match else None
     link = f"https://drive.google.com/uc?export=download&id={file_id}"
