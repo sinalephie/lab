@@ -76,6 +76,7 @@ def guarda(*links,**kwargs):
     link=linkdiretto(link)
     response = requests.get(link)
     data = BytesIO(response.content)
+    print(link)
     if kwargs['latex']==True:
       img = mpimg.imread(data)
       ratio = (img.shape[1] / img.shape[0])
