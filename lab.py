@@ -31,6 +31,29 @@ suoni['risposta corretta'] = 'https://cdn.pixabay.com/download/audio/2021/08/04/
 suoni['yumi'] = 'https://drive.usercontent.google.com/download?id=1TYoZtfyXbDXGvBavp9RiizbyN5c3U_-A&export=download&authuser=0&confirm=t&uuid=3a4c1d91-4195-4fae-b9e5-0597cb84ab03&at=APZUnTUABAkfF1JVWil1TEKAXY4Y:1707948945711'
 
 
+
+def linkdiretto(link):
+  import os, re, urllib,shutil
+  try:
+      urllib.request.urlopen("https://www.google.com", timeout=3)
+  except:
+      raise ImportError('Sei offline, connettiti ad internet per importare dati')
+      return
+  if 'google' and 'edit' and not 'docs' in link:
+    file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
+    file_id = file_id_match.group(1) if file_id_match else None
+    link = f"https://drive.google.com/uc?export=download&id={file_id}"
+  if 'google' and 'docs' in link:
+    file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
+    file_id = file_id_match.group(1) if file_id_match else None
+    link='https://docs.google.com/spreadsheets/d/'+ file_id + '/export?format=xlsx'
+  if '1drv' in link:
+    if 'files' in link:
+      link='https://api.onedrive.com/v1.0/shares/s!'+ link[link.find('!')+1:link.find('?')]+'/root/content'
+  return link
+
+
+
 #CIAOOO
 def guarda(*links,**kwargs):
   if 'latex' not in kwargs:
@@ -50,6 +73,7 @@ def guarda(*links,**kwargs):
     if isinstance(link, str) and presente==False and len(link)<30:
       raise ValueError(f'{link} non è stata/o ancora aggiunta/o, per visualizzare l\'elenco con tutte le immagini metti in argomento \'elenco\'')
       return
+    link=linkdiretto(link)
     response = requests.get(link)
     data = BytesIO(response.content)
     if kwargs['latex']==True:
@@ -61,7 +85,27 @@ def guarda(*links,**kwargs):
       plt.show()
     else:
       display(Image(data=data.read(),width=kwargs['size']))
- 
+
+
+def linkdiretto(link):
+  import os, re, urllib,shutil
+  try:
+      urllib.request.urlopen("https://www.google.com", timeout=3)
+  except:
+      raise ImportError('Sei offline, connettiti ad internet per importare dati')
+      return
+  if 'google' and 'edit' and not 'docs' in link:
+    file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
+    file_id = file_id_match.group(1) if file_id_match else None
+    link = f"https://drive.google.com/uc?export=download&id={file_id}"
+  if 'google' and 'docs' in link:
+    file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
+    file_id = file_id_match.group(1) if file_id_match else None
+    link='https://docs.google.com/spreadsheets/d/'+ file_id + '/export?format=xlsx'
+  if '1drv' in link:
+    if 'files' in link:
+      link='https://api.onedrive.com/v1.0/shares/s!'+ link[link.find('!')+1:link.find('?')]+'/root/content'
+  return link
 #FUNZIONI
 def importa_old(link): #obsoleta
   import os, re, urllib,shutil
@@ -96,32 +140,12 @@ def importa_old(link): #obsoleta
 def importa(link):
   import os, re, urllib,shutil
   import pandas as pd
-  
-  try:
-      urllib.request.urlopen("https://www.google.com", timeout=3)
-  except:
-      raise ImportError('Sei offline, connettiti ad internet per importare i dati')
-      return
-  if 'google' and 'edit' and not 'docs' in link:
-    file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
-    file_id = file_id_match.group(1) if file_id_match else None
-    link = f"https://drive.google.com/uc?export=download&id={file_id}"
-  if 'google' and 'docs' in link:
-    file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
-    file_id = file_id_match.group(1) if file_id_match else None
-    link='https://docs.google.com/spreadsheets/d/'+ file_id + '/export?format=xlsx'
-  if '1drv' in link:
-    if 'files' in link:
-      link='https://api.onedrive.com/v1.0/shares/s!'+ link[link.find('!')+1:link.find('?')]+'/root/content'
+  link=linkdiretto(link)
   response = requests.get(link)
   data = BytesIO(response.content)
   Dataframe=pd.read_excel(data)
   return Dataframe
-
-
-
-
-
+  
 def guida():
     print('link alla guida funzioni \u2193 \u2193 \u2193')
     print('https://colab.research.google.com/drive/1Lace8ZenxKYWlCYEODxErVbPpABbGp4G?usp=sharing')
@@ -710,6 +734,7 @@ def suona(link):
   if isinstance(link, str) and presente==False:
     raise ValueError('Questo suono non è stato ancora aggiunto, per visualizzare l\'elenco con tutti i suoni metti in argomento \'elenco\'')
     return
+  link=linkdiretto(link)
   response = requests.get(link)
   audio_data = BytesIO(response.content)
   display(Audio(data=audio_data.read(), autoplay=True))
