@@ -43,7 +43,7 @@ def linkdiretto(link):
     file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
     file_id = file_id_match.group(1) if file_id_match else None
     link = f"https://drive.google.com/uc?export=download&id={file_id}"
-  if 'google' and 'docs' in link:
+  if 'google' and 'docs' and not 'usercontent' in link:
     file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
     file_id = file_id_match.group(1) if file_id_match else None
     link='https://docs.google.com/spreadsheets/d/'+ file_id + '/export?format=xlsx'
