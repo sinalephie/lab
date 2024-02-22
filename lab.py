@@ -144,7 +144,7 @@ def stampa(*frasi_grandezze_colore):
           color='black'
         else:
           color='white'
-    except ModuleNotFoundError:
+    except ModuleNotFoundError, NameError:
         color='grey'
     testo_stili_multipli = ""
     frase = ''
