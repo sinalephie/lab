@@ -67,7 +67,7 @@ def guarda(*links,**kwargs):
   if 'latex' not in kwargs:
     kwargs['latex']=False
   if 'size' not in kwargs:
-    kwargs['size']=160
+    kwargs['size']=185
   html_code = "<div style=\"display: flex;\">"
   if not links or 'elenco' in links: 
     dimensione = 40
