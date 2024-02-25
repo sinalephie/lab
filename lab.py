@@ -24,7 +24,10 @@ except ModuleNotFoundError:
 immagini = {}
 immagini['capra'] = 'https://styles.redditmedia.com/t5_2qlyf/styles/communityIcon_w3vaehlvt5i11.jpg'
 immagini['mucca'] = 'https://www.fondazionevb.org/media/cache/582_436_inset/uploads/contents/dona-una-mucca-alle-donne-di-mutanu_1679318060.png'
-immagini['cane meme 1'] = 'https://drive.usercontent.google.com/download?id=1e9JfWwc6xPF1V5HE6CAHRpazE4pDyAxE&export=download&authuser=0&confirm=t&uuid=30b67e8b-41c6-454f-a07f-240c1ad6ae7d&at=APZUnTUd_keQ6z3BDJC152EsBL7Y:1707948416981'
+immagini['cane 1'] = 'https://drive.usercontent.google.com/download?id=1e9JfWwc6xPF1V5HE6CAHRpazE4pDyAxE&export=download&authuser=0&confirm=t&uuid=30b67e8b-41c6-454f-a07f-240c1ad6ae7d&at=APZUnTUd_keQ6z3BDJC152EsBL7Y:1707948416981'
+immagini['gatto 1'] = 'https://drive.google.com/file/d/1lIVYcg258xQA1NJWpw9RRBpb0R0cUBgX/view?usp=drive_link'
+immagini['peppa pig'] =  'https://drive.google.com/file/d/1j_YUDemBk1yfvMVCVs8EyzrTh1IuNZdJ/view?usp=drive_link'
+immagini['gatto 2'] = 'https://drive.google.com/file/d/1edyHMal4R80Wvh8OnO1aNPBbMPjZMoz1/view?usp=drive_link'
 # Suoni
 suoni = {}
 suoni['capra'] = 'https://cdn.pixabay.com/download/audio/2023/11/20/audio_6d2ecb8b19.mp3?filename=goat-sound-177346.mp3'
