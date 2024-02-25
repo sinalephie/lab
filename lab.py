@@ -24,7 +24,9 @@ except ModuleNotFoundError:
 immagini = {}
 immagini['capra'] = 'https://styles.redditmedia.com/t5_2qlyf/styles/communityIcon_w3vaehlvt5i11.jpg'
 immagini['mucca'] = 'https://www.fondazionevb.org/media/cache/582_436_inset/uploads/contents/dona-una-mucca-alle-donne-di-mutanu_1679318060.png'
-immagini['cane 1'] = 'https://drive.usercontent.google.com/download?id=1e9JfWwc6xPF1V5HE6CAHRpazE4pDyAxE&export=download&authuser=0&confirm=t&uuid=30b67e8b-41c6-454f-a07f-240c1ad6ae7d&at=APZUnTUd_keQ6z3BDJC152EsBL7Y:1707948416981'
+immagini['cane 1'] = 'https://drive.google.com/file/d/13XIuH3mwCGPDwGVANTQIFtnO7lTjkz0h/view?usp=drive_link'
+immagini['cane 2'] = 'https://drive.usercontent.google.com/download?id=1e9JfWwc6xPF1V5HE6CAHRpazE4pDyAxE&export=download&authuser=0&confirm=t&uuid=30b67e8b-41c6-454f-a07f-240c1ad6ae7d&at=APZUnTUd_keQ6z3BDJC152EsBL7Y:1707948416981'
+immagini['cane 3'] = 'https://drive.google.com/file/d/16lqpCgaOhYu3yJHw-sP2YkgqDr-wCgzE/view?usp=drive_link'
 immagini['gatto 1'] = 'https://drive.google.com/file/d/1lIVYcg258xQA1NJWpw9RRBpb0R0cUBgX/view?usp=drive_link'
 immagini['gatto 2'] = 'https://drive.google.com/file/d/1edyHMal4R80Wvh8OnO1aNPBbMPjZMoz1/view?usp=drive_link'
 immagini['gatto 3'] = 'https://drive.google.com/file/d/1gW2re7MlGPX9IS-y9H6V-eb7pqGbifh3/view?usp=drive_link'
@@ -32,9 +34,15 @@ immagini['gatto 4'] = 'https://drive.google.com/file/d/183wJ66og8102hvZFpWf6fPA0
 immagini['gatto 5'] = 'https://drive.google.com/file/d/14gHH1GV_AGa833MZh1xFxVaE8dNMEXgC/view?usp=drive_link'
 immagini['gatto 6'] = 'https://drive.google.com/file/d/11Z53qovCo2rfDHnTr0wRVwTIOssNLblu/view?usp=drive_link'
 immagini['gatto 7'] = 'https://drive.google.com/file/d/1nH6HOuMwW7Vgj5Jl2_gWkkyEsK5WqbQP/view?usp=drive_link'
+immagini['gatto 8'] = 'https://drive.google.com/file/d/1vVn8qLd58CibmhHeZE8m1o9V5XhmPICJ/view?usp=drive_link'
 immagini['peppa pig'] =  'https://drive.google.com/file/d/1j_YUDemBk1yfvMVCVs8EyzrTh1IuNZdJ/view?usp=drive_link'
+immagini['oca'] = 'https://drive.google.com/file/d/1BmNPsgNSJs1rVLp1uk19zrFTE-U0g6BO/view?usp=drive_link'
+immagini['random 1'] = 'https://drive.google.com/file/d/1HqYKUZ7jTMPTc53aPCv1nFhk4CvgZiVV/view?usp=drive_link'
+immagini['random 2'] = 'https://drive.google.com/file/d/1zKswYGgEfyE7EskCfPXTxbhYhAREKmXY/view?usp=drive_link'
 
-# Suoni
+
+
+ # Suoni
 suoni = {}
 suoni['capra'] = 'https://cdn.pixabay.com/download/audio/2023/11/20/audio_6d2ecb8b19.mp3?filename=goat-sound-177346.mp3'
 suoni['risposta corretta'] = 'https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=short-success-sound-glockenspiel-treasure-video-game-6346.mp3'
