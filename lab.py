@@ -69,16 +69,46 @@ def guarda(*links,**kwargs):
   if 'size' not in kwargs:
     kwargs['size']=200
   html_code = "<div style=\"display: flex;\">"
+  if not links or 'elenco' in links: 
+    dimensione = 40
+    altezza_thumbnail = 40  # Altezza desiderata per le miniature
+    html_code1 = """
+    <style>
+        .immagine-contenitore {
+            display: flex;
+        }
+        .immagine-contenitore figure {
+            margin-right: 2px;
+            text-align: center;
+        }
+        .immagine-contenitore figure img {
+            height: auto;  /* Impostare l'altezza su auto per consentire il ridimensionamento proporzionale */
+            max-height: """ + str(altezza_thumbnail) + """px;  /* Impostare l'altezza massima per limitare la dimensione */
+        }
+    </style>
+    <div class="immagine-contenitore">
+    """
+    for nome, link in immagini.items():
+        link=linkdiretto(link)
+        response = requests.get(link)
+        image_data = response.content
+        base64_encoded_image = base64.b64encode(image_data).decode('utf-8')
+        link = f"data:image/jpeg;base64,{base64_encoded_image}"
+        html_code1 += f"""
+        <figure>
+            <img src='{link}' alt='{nome}'>
+            <figcaption>{nome}</figcaption>
+        </figure>
+        """
+    html_code1 += "</div>"
+    display(HTML(html_code1))
+    return
   for link in links:
     presente=False
     for c, d in immagini.items():
       if link==c:
         link=d
         presente=True
-    elenco = ', '.join("'{0}'".format(key) for key in immagini.keys()) + '.'
-    if link=='elenco':
-      print('l\'elenco delle immagini disponibili è:', elenco)
-      return
     if isinstance(link, str) and presente==False and len(link)<30:
       raise ValueError(f'{link} non è stata/o ancora aggiunta/o, per visualizzare l\'elenco con tutte le immagini metti in argomento \'elenco\'')
       return
