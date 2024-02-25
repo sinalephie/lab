@@ -522,18 +522,28 @@ def fit(x,sx,y,sy,**kwargs):
     incertezza_intercetta = retta[0][1] 
   
   KEYWORDS
+
+
   
-    plot=True        ---> plotta la retta
+    origine=True       ---> esegue un interpolazione passante per l origine
   
-    opzioniplot=True ---> tutti gli argomenti che appaiono dopo questa keyword sono quelli per regolare il plot
-                          cioè sono le funzioni di matplotlib... tipo color='blue' eccc... 
-                          sono le opzioni per plt.plot
-                          fit(x, 0, y, sy, plot=True, opzioniplot=True, label='$y=ax+b$', linestyle='--')
+    plot=True          ---> plotta la retta
+
   
-    origine=True     ---> esegue un interpolazione passante per l origine
+    Se si vuole ridimensionare la retta:
+    xdestra = valore   ---> l'estremo destro della retta, o meglio la coordinata x dell estremo destro della retta
     
-  
-  
+    xsinistra = valore ---> l'estremo destro della retta, o meglio la coordinata x dell estremo destro della retta
+
+
+    Modificare lo stile del plot e aggiungee delle label
+    opzioniplot=True   ---> tutti gli argomenti che appaiono dopo questa keyword sono quelli per regolare il plot
+                            se si mette questa keyword dopo non si possono mettere altre keyword che non siano di matplotlib.
+                            cioè sono le funzioni di matplotlib... tipo color='blue' eccc... 
+                            sono le opzioni per plt.plot
+                            fit(x, 0, y, sy, plot=True, opzioniplot=True, label='$y=ax+b$', linestyle='--')
+
+
   per ulteriori esempi e utilizzi esegui la riga:
   guida() '''
 
