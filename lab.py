@@ -531,12 +531,15 @@ def fit(x,sx,y,sy,**kwargs):
 
   
     Se si vuole ridimensionare la retta:
+    
     xdestra = valore   ---> l'estremo destro della retta, o meglio la coordinata x dell estremo destro della retta
     
-    xsinistra = valore ---> l'estremo destro della retta, o meglio la coordinata x dell estremo destro della retta
+    xsinistra = valore ---> l'estremo sinistro della retta, o meglio la coordinata x dell estremo sinistro della retta
 
 
-    Modificare lo stile del plot e aggiungee delle label
+
+    Modificare lo stile del plot e aggiungee delle label:
+    
     opzioniplot=True   ---> tutti gli argomenti che appaiono dopo questa keyword sono quelli per regolare il plot
                             se si mette questa keyword dopo non si possono mettere altre keyword che non siano di matplotlib.
                             cioè sono le funzioni di matplotlib... tipo color='blue' eccc... 
