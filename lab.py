@@ -511,32 +511,32 @@ def somma(*argomento):
 #                     se le incertezze sulle x non sono trascurabili e avete incertezze uguali sulle y allora mettete il singolo valore sy, sennò mettete la lista
 
 def fit(x,sx,y,sy,**kwargs):
-    '''
-ESEMPIO
-
-  retta = fit(x, 0, y, sy, KEYWORDS...)
-
-  pendenza = retta[1][0]
-  incertezza_pendenza = retta[1][1] 
-  intercetta = retta[0][0]
-  incertezza_intercetta = retta[0][1] 
-
-KEYWORDS
-
-  plot=True        ---> plotta la retta
-
-  opzioniplot=True ---> tutti gli argomenti che appaiono dopo questa keyword sono quelli per regolare il plot
-                        cioè sono le funzioni di matplotlib... tipo color='blue' eccc... 
-                        sono le opzioni per plt.plot
-                        fit(x, 0, y, sy, plot=True, opzioniplot=True, label='$y=ax+b$', linestyle='--')
-
-  origine=True     ---> esegue un interpolazione passante per l origine
+  '''
+  ESEMPIO
   
+    retta = fit(x, 0, y, sy, KEYWORDS...)
+  
+    pendenza = retta[1][0]
+    incertezza_pendenza = retta[1][1] 
+    intercetta = retta[0][0]
+    incertezza_intercetta = retta[0][1] 
+  
+  KEYWORDS
+  
+    plot=True        ---> plotta la retta
+  
+    opzioniplot=True ---> tutti gli argomenti che appaiono dopo questa keyword sono quelli per regolare il plot
+                          cioè sono le funzioni di matplotlib... tipo color='blue' eccc... 
+                          sono le opzioni per plt.plot
+                          fit(x, 0, y, sy, plot=True, opzioniplot=True, label='$y=ax+b$', linestyle='--')
+  
+    origine=True     ---> esegue un interpolazione passante per l origine
+    
+  
+  
+  per ulteriori esempi e utilizzi esegui la riga:
+  guida() '''
 
-
-per ulteriori esempi e utilizzi esegui la riga:
-guida()
- '''
   opzioniplot={}
   boo=0
   for chiave, valore in kwargs.items():
