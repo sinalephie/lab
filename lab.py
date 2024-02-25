@@ -512,7 +512,8 @@ def somma(*argomento):
 
 def fit(x,sx,y,sy,**kwargs):
   '''
-  ESEMPIO
+  
+  1. ESEMPIO
   
     retta = fit(x, 0, y, sy, KEYWORDS...)
   
@@ -520,16 +521,15 @@ def fit(x,sx,y,sy,**kwargs):
     incertezza_pendenza = retta[1][1] 
     intercetta = retta[0][0]
     incertezza_intercetta = retta[0][1] 
-  
-  KEYWORDS
 
-      
-        
+
+  2. KEYWORDS
+
           origine=True       ---> esegue un interpolazione passante per l origine
         
           plot=True          ---> plotta la retta
+
       
-        
       Se si vuole ridimensionare la retta:
           
           xdestra = valore   ---> l'estremo destro della retta, o meglio la coordinata x dell estremo destro della retta
@@ -547,8 +547,9 @@ def fit(x,sx,y,sy,**kwargs):
                                   fit(x, 0, y, sy, plot=True, opzioniplot=True, label='$y=ax+b$', linestyle='--')
 
 
-  per ulteriori esempi e utilizzi esegui la riga:
-  guida() '''
+  3. Altro
+    per ulteriori esempi e utilizzi esegui la riga:
+    guida() '''
 
   opzioniplot={}
   boo=0
