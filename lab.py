@@ -30,7 +30,7 @@ immagini['gatto 2'] = 'https://drive.google.com/file/d/1edyHMal4R80Wvh8OnO1aNPBb
 immagini['gatto 3'] = 'https://drive.google.com/file/d/1gW2re7MlGPX9IS-y9H6V-eb7pqGbifh3/view?usp=drive_link'
 immagini['gatto 4'] = 'https://drive.google.com/file/d/183wJ66og8102hvZFpWf6fPA07DzJIq6h/view?usp=drive_link'
 immagini['gatto 5'] = 'https://drive.google.com/file/d/14gHH1GV_AGa833MZh1xFxVaE8dNMEXgC/view?usp=drive_link'
-immagnin['gatto 6'] = 'https://drive.google.com/file/d/11Z53qovCo2rfDHnTr0wRVwTIOssNLblu/view?usp=drive_link'
+immagini['gatto 6'] = 'https://drive.google.com/file/d/11Z53qovCo2rfDHnTr0wRVwTIOssNLblu/view?usp=drive_link'
 immagini['gatto 7'] = 'https://drive.google.com/file/d/1nH6HOuMwW7Vgj5Jl2_gWkkyEsK5WqbQP/view?usp=drive_link'
 immagini['peppa pig'] =  'https://drive.google.com/file/d/1j_YUDemBk1yfvMVCVs8EyzrTh1IuNZdJ/view?usp=drive_link'
 
