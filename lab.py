@@ -9,6 +9,7 @@ from IPython.display import Audio, HTML, Latex, display, Image
 import math
 from numpy import sin,cos,tan,arcsin,arctan,arccos
 import requests
+import base64
 from io import BytesIO
 from termcolor import colored
 from labs.librerie_aggiuntive.uncertainties.core import ufloat, correlated_values
