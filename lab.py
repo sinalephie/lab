@@ -39,11 +39,11 @@ def linkdiretto(link):
   except:
       raise ImportError('Sei offline, connettiti ad internet per importare dati')
       return
-  if 'google' and 'edit' and not 'docs' and not 'usercontent' in link:
+  if 'google' in link and 'file' in link and 'export' not in link:
     file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
     file_id = file_id_match.group(1) if file_id_match else None
     link = f"https://drive.google.com/uc?export=download&id={file_id}"
-  if 'google' and 'docs' and not 'usercontent' in link:
+  if 'google' in link and 'docs' in link and 'spreadsheets' in link and 'usercontent' not in link and 'export' not in link:
     file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
     file_id = file_id_match.group(1) if file_id_match else None
     link='https://docs.google.com/spreadsheets/d/'+ file_id + '/export?format=xlsx'
@@ -53,13 +53,12 @@ def linkdiretto(link):
   return link
 
 
-
-#CIAOOO
 def guarda(*links,**kwargs):
   if 'latex' not in kwargs:
     kwargs['latex']=False
   if 'size' not in kwargs:
     kwargs['size']=200
+  html_code = "<div style=\"display: flex;\">"
   for link in links:
     presente=False
     for c, d in immagini.items():
@@ -75,16 +74,23 @@ def guarda(*links,**kwargs):
       return
     link=linkdiretto(link)
     response = requests.get(link)
-    data = BytesIO(response.content)
     if kwargs['latex']==True:
+      data = BytesIO(response.content)
       img = mpimg.imread(data)
       ratio = (img.shape[1] / img.shape[0])
       plt.figure(figsize=(ratio*kwargs['size']*0.01, kwargs['size']*0.01))
       plt.imshow(img)
       plt.axis('off')
       plt.show()
+      return
     else:
-      display(Image(data=data.read(),width=kwargs['size']))
+      image_data = response.content
+      base64_encoded_image = base64.b64encode(image_data).decode('utf-8')
+      immagine = f"data:image/jpeg;base64,{base64_encoded_image}"
+      html_code += f"\n    <img src='{immagine}' style='margin-right: 10px; height: {kwargs['size']}px;'>"
+  html_code += "\n</div>"
+  display(HTML(html_code))
+
 
 #FUNZIONI
 def importa_old(link): #obsoleta
