@@ -510,6 +510,7 @@ def somma(*argomento):
 #                     se le incertezze sx sono tutte uguali potete anche mettere il singolo valore sx.
 #                     se le incertezze sulle x non sono trascurabili e avete incertezze uguali sulle y allora mettete il singolo valore sy, sennò mettete la lista
 
+
 def fit(x,sx,y,sy,**kwargs):
   '''
   
@@ -566,16 +567,11 @@ def fit(x,sx,y,sy,**kwargs):
   if len(x)!=len(y):
       raise ValueError('la numerosità delle misure in ascissa è diverse da quelle in ordinata')
       return 
-  scalasinistra=0.95
-  if min(x)<0:
-    scalasinistra=1.05
-  scaladestra=1.05
-  if max(x)<0:
-    scaladestra=0.95
+  spazio=abs(min(x)-max(x))*0.08
   if 'xsinistra' in kwargs:
-    scalasinistra=1
+    spazio=0
   if 'xdestra' in kwargs:
-    scaladestra=1
+    spazio=0
   if not 'xsinistra' in kwargs:
     kwargs['xsinistra']=min(x)
   if not 'xdestra' in kwargs:
@@ -586,11 +582,6 @@ def fit(x,sx,y,sy,**kwargs):
       pendenza=(1/delta)*(N*somma(moltiplica(x,y))-somma(x)*somma(y))
       erroreintercetta=sy*((somma(potenza(x,2))/delta)**0.5)
       errorependenza=sy*((N/delta)**0.5)
-      if kwargs['plot']==True:
-        import matplotlib.pyplot as plt
-        lex=np.array([kwargs['xsinistra']*scalasinistra,kwargs['xdestra']*scaladestra])
-        ley=pendenza*lex + intercetta
-        plt.plot(lex,ley,**opzioniplot)
       return [[intercetta,erroreintercetta],[pendenza,errorependenza]]
   def caso2(x,y,sy):
       delta=somma(moltiplica(1,potenza(sy,-2)))*somma(moltiplica(potenza(x,2),potenza(sy,-2)))-(somma(moltiplica(x,potenza(sy,-2))))**2
@@ -598,11 +589,6 @@ def fit(x,sx,y,sy,**kwargs):
       pendenza=(1/delta)*(somma(moltiplica(1,potenza(sy,-2)))*somma(moltiplica(x,y,potenza(sy,-2)))-somma(moltiplica(x,potenza(sy,-2)))*somma(moltiplica(y,potenza(sy,-2))))
       erroreintercetta=((1/delta)*somma(moltiplica(potenza(x,2),potenza(sy,-2))))**0.5
       errorependenza=((1/delta)*somma(moltiplica(1,potenza(sy,-2))))**0.5
-      if kwargs['plot']==True:
-        import matplotlib.pyplot as plt
-        lex=np.array([kwargs['xsinistra']*scalasinistra,kwargs['xdestra']*scaladestra])
-        ley=pendenza*lex + intercetta
-        plt.plot(lex,ley,**opzioniplot)
       return [[intercetta,erroreintercetta],[pendenza,errorependenza]]
   def caso3(x,sx,y,sy):
       if isinstance (sy, (float, int)):
@@ -610,13 +596,11 @@ def fit(x,sx,y,sy,**kwargs):
       if not isinstance (sy, (float, int)):
           retta=caso2(x,y,sy)
       b=retta[1][0]
-
       if isinstance(sy,(int, float)):
           incertezzasingola=sy
           sy=[]
           for c in range(0,len(x)):
               sy.append(incertezzasingola)
-
       if isinstance(sx,(int, float)):
           incertezzasingola=sx
           sx=[]
@@ -635,11 +619,6 @@ def fit(x,sx,y,sy,**kwargs):
       pendenza=(1/delta)*(somma(moltiplica(1,potenza(si,-2)))*somma(moltiplica(x,y,potenza(si,-2)))-somma(moltiplica(x,potenza(si,-2)))*somma(moltiplica(y,potenza(si,-2))))
       erroreintercetta=((1/delta)*somma(moltiplica(potenza(x,2),potenza(si,-2))))**0.5
       errorependenza=((1/delta)*somma(potenza(si,-2)))**0.5
-      if kwargs['plot']==True:
-        import matplotlib.pyplot as plt
-        lex=np.array([kwargs['xsinistra']*scalasinistra,kwargs['xdestra']*scaladestra])
-        ley=pendenza*lex + intercetta
-        plt.plot(lex,ley,**opzioniplot)
       return [[intercetta,erroreintercetta],[pendenza,errorependenza]]
   if kwargs['origine']==True:
     if isinstance(sy,(int, float)):
@@ -657,12 +636,7 @@ def fit(x,sx,y,sy,**kwargs):
       def funzione(x,a):
         return x*a
       parametri, covarianza=curve_fit(funzione,x,y,sigma=sy,absolute_sigma=True)
-      if kwargs['plot']==True:
-        import matplotlib.pyplot as plt
-        lex=np.array([kwargs['xsinistra']*scalasinistra,kwargs['xdestra']*scaladestra])
-        ley=parametri[0]*lex
-        plt.plot(lex,ley,**opzioniplot)
-      return [[0,0],[parametri[0],covarianza[0][0]**0.5]]
+      matrice = [[0,0],[parametri[0],covarianza[0][0]**0.5]]
     else:
       from scipy.odr import Model,RealData,ODR
       def funzione(parametri,x):
@@ -672,19 +646,13 @@ def fit(x,sx,y,sy,**kwargs):
       data=RealData(x,y,sx=sx,sy=sy)
       odr = ODR(data, modello, beta0=[rettaa[1][0]])
       result = odr.run()
-      if kwargs['plot']==True:
-        import matplotlib.pyplot as plt
-        lex=np.array([kwargs['xsinistra']*scalasinistra,kwargs['xdestra']*scaladestra])
-        ley=result.beta[0]*lex
-        plt.plot(lex,ley,**opzioniplot)
-      return [[0,0],[result.beta[0],result.sd_beta[0][0]]]
+      matrice = [[0,0],[result.beta[0],result.sd_beta[0][0]]]
 
 
+  elif sx == 0 and isinstance (sy, (float,int)):
+      matrice = caso1(x,y,sy)
 
-  if sx == 0 and isinstance (sy, (float,int)):
-      return caso1(x,y,sy)
-
-  if sx == 0 and not isinstance (sy, (float,int)):
+  elif sx == 0 and not isinstance (sy, (float,int)):
       if len(sy) != len(x):
           mess='''
           il numero di incertezze inserite per le misure in ordinata è diverso dalla numerosità delle misure.
@@ -692,10 +660,48 @@ def fit(x,sx,y,sy,**kwargs):
           '''
           raise ValueError(mess)
           return 
-      return caso2(x,y,sy)
+      matrice = caso2(x,y,sy)
 
   else:
-      return caso3(x,sx,y,sy)
+      matrice = caso3(x,sx,y,sy)
+
+  intercetta=matrice[0][0]
+  erroreintercetta=matrice[0][1]
+  pendenza=matrice[1][0]
+  errorependenza=matrice[1][1]
+  from scipy.odr import RealData, Model, ODR
+  def fun(param, x):
+    return param[0] * x + param[1]
+  if sx==0:
+    sx=1e-60 #se si trascurano le incertezze sulle x non va, allora le assumo piccolissime
+  model = Model(fun)
+  data = RealData(x, y, sx=sx, sy=sy)
+  odr = ODR(data, model, beta0=[pendenza,intercetta])
+  resultt = odr.run()
+  cov = resultt.cov_beta[1][0] 
+  matrice = [[intercetta,erroreintercetta],[pendenza,errorependenza],cov]
+  if kwargs['plot']==True:
+    import matplotlib.pyplot as plt
+    lex=np.array([kwargs['xsinistra'] - spazio,kwargs['xdestra'] + spazio])
+    ley=pendenza*lex + intercetta
+    plt.plot(lex,ley,**opzioniplot)
+  if kwargs['residui']==True:
+    if 'capsize' not in opzioniplot:
+      opzioniplot['capsize']=2
+    if 'linestyle' not in opzioniplot:
+      opzioniplot['linestyle']='-'
+    import matplotlib.pyplot as plt
+    residui=[]
+    for c in range (len(x)):
+      residuo=y[c]-(pendenza*x[c]+intercetta)
+      residui.append(residuo)
+    lex=np.array([kwargs['xsinistra'] - spazio,kwargs['xdestra'] + spazio])
+    plt.plot(lex,[0,0],linestyle=opzioniplot['linestyle'])
+    if 'linestyle' in opzioniplot:
+      del opzioniplot['linestyle']
+    plt.errorbar(x,residui,yerr=sy,fmt='o',**opzioniplot)
+    plt.ylim(-max(np.abs(residui)*1.1+max(sy)),max(np.abs(residui)*1.1+max(sy)))
+  return matrice
 
 #ERRORE A POSTERIORI per RETTA:
 def posterioriretta(x,y,retta):
