@@ -563,6 +563,8 @@ def fit(x,sx,y,sy,**kwargs):
     kwargs['origine']=False
   if not 'plot' in kwargs:
     kwargs['plot']=False
+  if not 'residui' in kwargs:
+    kwargs['residui']=False
   N=len(x) #  Numerosità
   if len(x)!=len(y):
       raise ValueError('la numerosità delle misure in ascissa è diverse da quelle in ordinata')
