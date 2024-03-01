@@ -530,7 +530,7 @@ def fit(x,sx,y,sy,**kwargs):
           plot=True          ---> plotta la retta
   
           residui=True       ---> plotta i residui (in generale non mettere sia plot=True che residui=True, senno mischia il plot e i residui perdono di significato)
-                                                    se hai bisogno di entrambi scrivi ricopi la riga in modo da averne una con plot=True e l'altra con residui=True 
+                                                    se hai bisogno di entrambi ricopi la riga in modo da averne una con plot=True e l'altra con residui=True 
                                                     con in mezzo alle due righe plt.figure() per separare i plot.
           
       Se si vuole ridimensionare la retta (utile per plot=True):
