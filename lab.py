@@ -50,6 +50,7 @@ suoni['yumi'] = 'https://drive.usercontent.google.com/download?id=1TYoZtfyXbDXGv
 
 
 
+stile=['labs/liberie_aggiuntive/SciencePlots/notebook.mplstyle','labs/liberie_aggiuntive/SciencePlots/notebook.mplstyle']
 def linkdiretto(link):
   import os, re, urllib,shutil
   try:
