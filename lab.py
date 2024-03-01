@@ -521,7 +521,7 @@ def fit(x,sx,y,sy,**kwargs):
     incertezza_pendenza = retta[1][1] 
     intercetta = retta[0][0]
     incertezza_intercetta = retta[0][1] 
-    covarianza_parametri = retta[3]
+    covarianza_parametri = retta[2]
 
   2. KEYWORDS
 
