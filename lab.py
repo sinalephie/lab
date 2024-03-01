@@ -513,7 +513,6 @@ def somma(*argomento):
 
 def fit(x,sx,y,sy,**kwargs):
   '''
-  
   1. ESEMPIO
   
     retta = fit(x, 0, y, sy, KEYWORDS...)
@@ -522,16 +521,19 @@ def fit(x,sx,y,sy,**kwargs):
     incertezza_pendenza = retta[1][1] 
     intercetta = retta[0][0]
     incertezza_intercetta = retta[0][1] 
-
+    covarianza_parametri = retta[3]
 
   2. KEYWORDS
 
           origine=True       ---> esegue un interpolazione passante per l origine
         
           plot=True          ---> plotta la retta
-
-      
-      Se si vuole ridimensionare la retta:
+  
+          residui=True       ---> plotta i residui (in generale non mettere sia plot=True che residui=True, senno mischia il plot e i residui perdono di significato)
+                                                    se hai bisogno di entrambi scrivi ricopi la riga in modo da averne una con plot=True e l'altra con residui=True 
+                                                    con in mezzo alle due righe plt.figure() per separare i plot.
+          
+      Se si vuole ridimensionare la retta (utile per plot=True):
           
           xdestra = valore   ---> l'estremo destro della retta, o meglio la coordinata x dell estremo destro della retta
           
@@ -539,13 +541,26 @@ def fit(x,sx,y,sy,**kwargs):
       
       
       
-      Modificare lo stile del plot e aggiungee delle label:
+      Modificare lo stile del plot e aggiungee delle label (utile per plot=True o residui=True):
           
           opzioniplot=True   ---> tutti gli argomenti che appaiono dopo questa keyword sono quelli per regolare il plot
                                   se si mette questa keyword dopo non si possono mettere altre keyword che non siano di matplotlib.
-                                  cioè sono le funzioni di matplotlib... tipo color='blue' eccc... 
-                                  sono le opzioni per plt.plot
+                                  cioè sono le opzioni di matplotlib... tipo color='blue' eccc... 
+
+                                  
+                                  sono le opzioni per plt.plot se hai fatto plot=True,
+                                  
+                                  sono le opzioni per plt.errorbar se hai fatto residui=True  (modifica i punti, colore delle errorbar, forma del punto ecc)
+                                  
+                                  Esempio
                                   fit(x, 0, y, sy, plot=True, opzioniplot=True, label='$y=ax+b$', linestyle='--')
+                                  
+                                  fit(x, 0, y, sy, residui=True, opzioniplot=True, label='punti sperimentali', capsize=4, ecolor='red')
+
+
+                                  
+                                  Se hai fatto residui = True puoi comunque variare il linestyle della retta al centro semplicemente scrivendo 
+                                  la keyword per il linestyle (la funzione capisce che è una keyword che appartiene alla retta e non ai punti di plt.errorbar)
 
 
   3. Altro
