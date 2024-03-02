@@ -40,3 +40,7 @@ legend.frameon : True
 legend.framealpha : 1.0
 legend.fancybox : True
 legend.numpoints : 1
+
+# Always save as 'tight'
+savefig.bbox : tight
+savefig.pad_inches : 0.05
