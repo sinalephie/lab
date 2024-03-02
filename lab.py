@@ -54,9 +54,7 @@ def stile(a):
     if a==0:
       c='default'
     if a==1:
-      c=['labs/librerie_aggiuntive/SciencePlots/scienceplots/styles/stile.mplstyle']
-    if a==2:
-      c=['labs/librerie_aggiuntive/SciencePlots/scienceplots/styles/stile 2.mplstyle']
+      c=['labs/librerie_aggiuntive/SciencePlots/stile.mplstyle']
     return c
   except:
     return 'default'
@@ -700,7 +698,9 @@ def fit(x,sx,y,sy,**kwargs):
   def fun(param, x):
     return param[0] * x + param[1]
   if sx==0:
-    sx=1e-60 #se si trascurano le incertezze sulle x non va, allora le assumo piccolissime
+    sx=1e-60
+  if sy==0:
+    sy=1e-60        #se si trascurano le incertezze sulle x non va, allora le assumo piccolissime
   model = Model(fun)
   data = RealData(x, y, sx=sx, sy=sy)
   odr = ODR(data, model, beta0=[pendenza,intercetta])
