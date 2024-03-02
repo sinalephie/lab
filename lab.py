@@ -729,7 +729,7 @@ def fit(x,sx,y,sy,**kwargs):
     plt.errorbar(x,residui,yerr=sy,fmt='o',**opzioniplot)
     try:
       massim=max(sy)
-    except
+    except:
       massim=sy
     plt.ylim(-max(np.abs(residui)*1.1+massim),max(np.abs(residui)*1.1+massim))
   return matrice
