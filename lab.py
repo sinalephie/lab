@@ -56,8 +56,6 @@ def stile(a):
     c='default'
   if a==2:
     c=['labs/librerie_aggiuntive/SciencePlots/scienceplots/styles/stile 2.mplstyle']
-  else:
-    c='default'
   return c
 def linkdiretto(link):
   import os, re, urllib,shutil
