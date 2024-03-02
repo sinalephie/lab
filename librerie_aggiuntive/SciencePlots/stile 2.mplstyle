@@ -1,0 +1,34 @@
+# Set y axis ticks
+ytick.direction: in
+ytick.major.size: 6
+ytick.major.width: 0.5
+ytick.minor.size: 3
+ytick.minor.width: 0.5
+ytick.minor.visible: True
+ytick.right: False
+
+# Set x axis ticks
+xtick.direction: in
+xtick.major.size: 6
+xtick.major.width: 0.5
+xtick.minor.size: 3
+xtick.minor.width: 0.5
+xtick.minor.visible: True
+
+# Set line widths
+axes.linewidth: 0.8
+lines.linewidth: 1.4
+
+# Grid lines
+axes.grid: True
+axes.axisbelow: False
+grid.linestyle: --
+grid.color: k
+grid.alpha: 0.6
+grid.linewidth: 0.4
+
+# Legend
+legend.frameon: True
+legend.framealpha: 1.0
+legend.fancybox: True
+legend.numpoints: 1
