@@ -697,10 +697,8 @@ def fit(x,sx,y,sy,**kwargs):
   from scipy.odr import RealData, Model, ODR
   def fun(param, x):
     return param[0] * x + param[1]
-  if sx==0:
+  if sx==0: #se si trascurano le incertezze sulle x non va, allora le assumo piccolissime
     sx=1e-60
-  if sy==0:
-    sy=1e-60        #se si trascurano le incertezze sulle x non va, allora le assumo piccolissime
   model = Model(fun)
   data = RealData(x, y, sx=sx, sy=sy)
   odr = ODR(data, model, beta0=[pendenza,intercetta])
