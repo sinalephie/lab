@@ -50,12 +50,14 @@ suoni['yumi'] = 'https://drive.usercontent.google.com/download?id=1TYoZtfyXbDXGv
 
 
 def stile(a):
-  if a==1:
-    c=['labs/librerie_aggiuntive/SciencePlots/scienceplots/styles/stile.mplstyle']
   if a==0:
     c='default'
+  if a==1:
+    c=['labs/librerie_aggiuntive/SciencePlots/scienceplots/styles/stile.mplstyle']
   if a==2:
     c=['labs/librerie_aggiuntive/SciencePlots/scienceplots/styles/stile 2.mplstyle']
+  else:
+    c='default'
   return c
 def linkdiretto(link):
   import os, re, urllib,shutil
