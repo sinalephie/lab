@@ -21,7 +21,7 @@ lines.linewidth: 1.4
 
 # Grid lines
 axes.grid: True
-axes.axisbelow: False
+axes.axisbelow: True
 grid.linestyle: --
 grid.color: k
 grid.alpha: 0.6
