@@ -49,8 +49,8 @@ suoni['risposta corretta'] = 'https://cdn.pixabay.com/download/audio/2021/08/04/
 suoni['yumi'] = 'https://drive.usercontent.google.com/download?id=1TYoZtfyXbDXGvBavp9RiizbyN5c3U_-A&export=download&authuser=0&confirm=t&uuid=3a4c1d91-4195-4fae-b9e5-0597cb84ab03&at=APZUnTUABAkfF1JVWil1TEKAXY4Y:1707948945711'
 
 
-
-stile=['labs/librerie_aggiuntive/SciencePlots/scienceplots/styles/stile.mplstyle']
+def stile():
+  return ['labs/librerie_aggiuntive/SciencePlots/scienceplots/styles/stile.mplstyle']
 def linkdiretto(link):
   import os, re, urllib,shutil
   try:
