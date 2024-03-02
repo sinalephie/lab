@@ -25,7 +25,6 @@ ytick.right : True
 
 # Set line widths
 axes.linewidth : 0.5
-grid.linewidth : 0.5
 lines.linewidth : 1.
 
 # Grid lines
@@ -41,6 +40,3 @@ legend.frameon : True
 legend.framealpha : 1.0
 legend.fancybox : True
 legend.numpoints : 1
-
-# Always save as 'tight'
-savefig.bbox : tight
