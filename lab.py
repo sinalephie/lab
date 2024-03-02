@@ -727,7 +727,11 @@ def fit(x,sx,y,sy,**kwargs):
     if 'linestyle' in opzioniplot:
       del opzioniplot['linestyle']
     plt.errorbar(x,residui,yerr=sy,fmt='o',**opzioniplot)
-    plt.ylim(-max(np.abs(residui)*1.1+max(sy)),max(np.abs(residui)*1.1+max(sy)))
+    try:
+      massim=max(sy)
+    except
+      massim=sy
+    plt.ylim(-max(np.abs(residui)*1.1+massim),max(np.abs(residui)*1.1+massim))
   return matrice
 
 #ERRORE A POSTERIORI per RETTA:
