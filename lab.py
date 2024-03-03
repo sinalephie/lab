@@ -10,6 +10,7 @@ import math
 from numpy import sin,cos,tan,arcsin,arctan,arccos
 import requests
 import base64
+import time
 from io import BytesIO
 from termcolor import colored
 from labs.librerie_aggiuntive.uncertainties.core import ufloat, correlated_values
