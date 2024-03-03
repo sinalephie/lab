@@ -117,7 +117,7 @@ def guarda(*links,**kwargs):
     """
     for nome, link in immagini.items():
         time.sleep(0.02)
-        out.update(progress(progresso, 100))
+        out.update(barra_progresso(progresso, 100))
         progresso+=1
         link=linkdiretto(link)
         response = requests.get(link)
