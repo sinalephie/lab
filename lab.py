@@ -116,14 +116,15 @@ def guarda(*links,**kwargs):
     <div class="immagine-contenitore">
     """
     for nome, link in immagini.items():
-        time.sleep(0.02)
-        out.update(barra_progresso(progresso, len(immagini)))
         progresso+=1
         link=linkdiretto(link)
         response = requests.get(link)
         image_data = response.content
         base64_encoded_image = base64.b64encode(image_data).decode('utf-8')
         link = f"data:image/jpeg;base64,{base64_encoded_image}"
+        progresso+=1
+        time.sleep(0.02)
+        out.update(barra_progresso(progresso, len(immagini)))
         html_code1 += f"""
         <figure>
             <img src='{link}' alt='{nome}'>
@@ -132,6 +133,7 @@ def guarda(*links,**kwargs):
         """
     html_code1 += "</div>"
     display(HTML(html_code1))
+    
     return
   for link in links:
     presente=False
