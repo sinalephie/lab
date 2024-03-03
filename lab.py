@@ -95,7 +95,7 @@ def guarda(*links,**kwargs):
     kwargs['size']=185
   html_code = "<div style=\"display: flex;\">"
   if not links or 'elenco' in links: 
-    out = display(barra_progresso(0, len(immagini)+2), display_id=True)
+    out = display(barra_progresso(0, len(immagini)+1), display_id=True)
     progresso=0
     dimensione = 40
     altezza_thumbnail = 40  # Altezza desiderata per le miniature
@@ -116,7 +116,6 @@ def guarda(*links,**kwargs):
     <div class="immagine-contenitore">
     """
     for nome, link in immagini.items():
-        progresso+=1
         link=linkdiretto(link)
         response = requests.get(link)
         image_data = response.content
@@ -133,7 +132,7 @@ def guarda(*links,**kwargs):
     html_code1 += "</div>"
     progresso+=1
     display(HTML(html_code1))
-    out.update(barra_progresso(progresso, len(immagini)+2))
+    out.update(barra_progresso(progresso, len(immagini)+1))
     return
   for link in links:
     presente=False
