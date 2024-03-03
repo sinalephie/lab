@@ -95,7 +95,7 @@ def guarda(*links,**kwargs):
     kwargs['size']=185
   html_code = "<div style=\"display: flex;\">"
   if not links or 'elenco' in links: 
-    out = display(barra_progresso(0, len(immagini)), display_id=True)
+    out = display(barra_progresso(0, len(immagini)+1), display_id=True)
     progresso=0
     dimensione = 40
     altezza_thumbnail = 40  # Altezza desiderata per le miniature
@@ -123,8 +123,7 @@ def guarda(*links,**kwargs):
         base64_encoded_image = base64.b64encode(image_data).decode('utf-8')
         link = f"data:image/jpeg;base64,{base64_encoded_image}"
         progresso+=1
-        time.sleep(0.02)
-        out.update(barra_progresso(progresso, len(immagini)))
+        out.update(barra_progresso(progresso, len(immagini)+1))
         html_code1 += f"""
         <figure>
             <img src='{link}' alt='{nome}'>
@@ -132,8 +131,9 @@ def guarda(*links,**kwargs):
         </figure>
         """
     html_code1 += "</div>"
+    progresso+=1
     display(HTML(html_code1))
-    
+    out.update(barra_progresso(progresso, len(immagini)+1))
     return
   for link in links:
     presente=False
