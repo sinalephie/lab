@@ -97,8 +97,8 @@ def guarda(*links,**kwargs):
   if not links or 'elenco' in links: 
     out = display(barra_progresso(0, len(immagini)+1), display_id=True)
     progresso=0
-    dimensione = 40
-    altezza_thumbnail = 40  # Altezza desiderata per le miniature
+    dimensione = 50
+    altezza_thumbnail = 50  
     html_code1 = """
     <style>
         .immagine-contenitore {
