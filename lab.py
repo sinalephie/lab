@@ -86,7 +86,7 @@ def barra_progresso(value, max=100):
         >
             {value}
         </progress>
-    """.format(value=value, max=max))
+    """.format(value=value, max=max,color='green'))
 
 def guarda(*links,**kwargs):
   if 'latex' not in kwargs:
