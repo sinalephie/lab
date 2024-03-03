@@ -82,7 +82,7 @@ def barra_progresso(value, max=100):
         <progress
             value='{value}'
             max='{max}',
-            style='width: 100%'
+            style='width: 100%;color: 'green';'
         >
             {value}
         </progress>
