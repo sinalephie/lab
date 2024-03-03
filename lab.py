@@ -76,6 +76,16 @@ def linkdiretto(link):
       link='https://api.onedrive.com/v1.0/shares/s!'+ link[link.find('!')+1:link.find('?')]+'/root/content'
   return link
 
+def barra_progresso(value, max=100):
+    return HTML("""
+        <progress
+            value='{value}'
+            max='{max}',
+            style='width: 100%'
+        >
+            {value}
+        </progress>
+    """.format(value=value, max=max))
 
 def guarda(*links,**kwargs):
   if 'latex' not in kwargs:
@@ -84,6 +94,8 @@ def guarda(*links,**kwargs):
     kwargs['size']=185
   html_code = "<div style=\"display: flex;\">"
   if not links or 'elenco' in links: 
+    out = display(progress(0, 100), display_id=True)
+    progresso=0
     dimensione = 40
     altezza_thumbnail = 40  # Altezza desiderata per le miniature
     html_code1 = """
@@ -103,6 +115,9 @@ def guarda(*links,**kwargs):
     <div class="immagine-contenitore">
     """
     for nome, link in immagini.items():
+        time.sleep(0.02)
+        out.update(progress(progresso, 100))
+        progresso+=1
         link=linkdiretto(link)
         response = requests.get(link)
         image_data = response.content
