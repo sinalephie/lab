@@ -122,7 +122,7 @@ def guarda(*links,**kwargs):
         base64_encoded_image = base64.b64encode(image_data).decode('utf-8')
         link = f"data:image/jpeg;base64,{base64_encoded_image}"
         progresso+=1
-        out.update(barra_progresso(progresso, len(immagini)+2))
+        out.update(barra_progresso(progresso, len(immagini)+1))
         html_code1 += f"""
         <figure>
             <img src='{link}' alt='{nome}'>
