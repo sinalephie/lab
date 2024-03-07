@@ -761,7 +761,7 @@ def posterioriretta(x,y,retta):
 #                      ESEMPIO:  excel (lista, 'ciao' )
 
 
-def excel(lista, stringa):
+def excel(lista, stringa,**kwargs):
   nomefile=stringa + '.xlsx'
   if 'transponi' not in kwargs:
     kwargs['transponi']=False
