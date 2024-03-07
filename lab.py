@@ -763,8 +763,14 @@ def posterioriretta(x,y,retta):
 
 def excel(lista, stringa):
   nomefile=stringa + '.xlsx'
+  if 'transponi' not in kwargs:
+    kwargs['transponi']=False
+  if 'cifre_decimali' in kwargs:
+    lista=np.round(lista,kwargs['cifre_decimali'])
   if isinstance (lista[0],(int, float)):
-    df = pd.DataFrame(lista).transpose()
+    df = pd.DataFrame(lista)
+    if kwargs['transponi']==True:
+      df = pd.Dataframe(lista).transpose()
     return  df.to_excel(nomefile, index=False)
   else:
     df = pd.DataFrame(lista).transpose()
