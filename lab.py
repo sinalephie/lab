@@ -764,7 +764,7 @@ def posterioriretta(x,y,retta):
 def excel(lista, stringa):
   nomefile=stringa + '.xlsx'
   if isinstance (lista[0],(int, float)):
-    df = pd.DataFrame(lista).transpose(
+    df = pd.DataFrame(lista).transpose()
     return  df.to_excel(nomefile, index=False)
   else:
     df = pd.DataFrame(lista).transpose()
