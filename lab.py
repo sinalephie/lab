@@ -770,7 +770,7 @@ def excel(lista, stringa,**kwargs):
   if isinstance (lista[0],(int, float)):
     df = pd.DataFrame(lista)
     if kwargs['transponi']==True:
-      df = pd.Dataframe(lista).transpose()
+      df = pd.DataFrame(lista).transpose()
     return  df.to_excel(nomefile, index=False)
   else:
     df = pd.DataFrame(lista).transpose()
