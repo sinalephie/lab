@@ -7,6 +7,7 @@ import scipy as sp
 import numpy as np
 from IPython.display import Audio, HTML, Latex, display, Image
 import math
+import seaborn as sns
 from numpy import sin,cos,tan,arcsin,arctan,arccos
 import requests
 import base64
