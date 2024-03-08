@@ -209,9 +209,9 @@ def guida():
 
 def interpola(x,y,**kwargs):
   if 'smussa' not in kwargs:
-    kwargs['smussa']=0.00005
+    kwargs['smussa']=1
   from scipy.interpolate import UnivariateSpline
-  f = UnivariateSpline(x, y , s=kwargs['smussa'])
+  f = UnivariateSpline(x, y , s=kwargs['smussa']/10000*0.5)
   x_new = np.linspace(min(x), max(x), 200)
   y_new = f(x_new)
   if 'smussa' in kwargs:
