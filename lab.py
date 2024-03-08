@@ -218,6 +218,9 @@ def interpola(x,y,**kwargs):
   if 'smussa' in kwargs:
     del kwargs['smussa']
   plt.plot(x_new,y_new,**kwargs)
+  if 'riempi' in kwargs:
+    y_limit = plt.ylim()
+    plt.fill_between(x_new, y_new, y_limit[0],color='skyblue',alpha=0.5)
   return
 
 #STAMPA (print) ma piu figa (grazie chatgpt)
