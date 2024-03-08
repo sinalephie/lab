@@ -207,6 +207,16 @@ def guida():
     print('link alla guida funzioni \u2193 \u2193 \u2193')
     print('https://colab.research.google.com/drive/1Lace8ZenxKYWlCYEODxErVbPpABbGp4G?usp=sharing')
 
+def interpola(x,y,**kwargs):
+  if 'smussa' not in kwargs:
+    kwargs['smussa']=0.00005
+  from scipy.interpolate import UnivariateSpline
+  f = UnivariateSpline(x, y , s=kwargs['smussa'])
+  x_new = np.linspace(min(R1), max(R1), 100)
+  y_new = f(x_new)
+  if 'smussa' in kwargs:
+    del kwargs['smussa']
+  plt.plot(x_new,y_new,**kw
 
 #STAMPA (print) ma piu figa (grazie chatgpt)
 #       SINTASSI/ESEMPI: stampa(['ciaoo',20],['questo è un testo un po piu grande',50],['questo è piu piccolo ed è rosso',30,'red'])
