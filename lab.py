@@ -212,7 +212,7 @@ def interpola(x,y,**kwargs):
     kwargs['smussa']=0.00005
   from scipy.interpolate import UnivariateSpline
   f = UnivariateSpline(x, y , s=kwargs['smussa'])
-  x_new = np.linspace(min(R1), max(R1), 100)
+  x_new = np.linspace(min(x), max(x), 200)
   y_new = f(x_new)
   if 'smussa' in kwargs:
     del kwargs['smussa']
