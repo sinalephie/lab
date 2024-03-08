@@ -216,7 +216,8 @@ def interpola(x,y,**kwargs):
   y_new = f(x_new)
   if 'smussa' in kwargs:
     del kwargs['smussa']
-  plt.plot(x_new,y_new,**kw
+  plt.plot(x_new,y_new,**kwargs)
+  return
 
 #STAMPA (print) ma piu figa (grazie chatgpt)
 #       SINTASSI/ESEMPI: stampa(['ciaoo',20],['questo è un testo un po piu grande',50],['questo è piu piccolo ed è rosso',30,'red'])
