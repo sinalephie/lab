@@ -229,15 +229,7 @@ def interpola(x,y,**kwargs):
 #                        misura=40
 #                        stampa([f'la tua misura è {misura}','blue'])
 def stampa(*frasi_grandezze_colore):
-    try:
-        if is_dark:
-          color='white'
-        if not is_dark:
-          color='black'
-        else:
-          color='white'
-    except (ModuleNotFoundError, NameError):
-        color='grey'
+    color='inherit\''
     testo_stili_multipli = ""
     frase = ''
     for elemento in frasi_grandezze_colore:
