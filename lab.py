@@ -719,6 +719,43 @@ def fit(x,sx,y,sy,**kwargs):
     lex=np.array([kwargs['xsinistra'] - spazio,kwargs['xdestra'] + spazio])
     ley=pendenza*lex + intercetta
     plt.plot(lex,ley,**opzioniplot)
+  if kwargs['residui']==True:
+    if kwargs['plot']==True:
+      plt.figure()
+    if 'capsize' not in opzioniplot:
+      opzioniplot['capsize']=2
+    if 'linestyle' not in opzioniplot:
+      opzioniplot['linestyle']='-'
+    import matplotlib.pyplot as plt
+    residui=[]
+    for c in range (len(x)):
+      residuo=y[c]-(pendenza*x[c]+intercetta)
+      residui.append(residuo)
+    lex=np.array([kwargs['xsinistra'] - spazio,kwargs['xdestra'] + spazio])
+    plt.plot(lex,[0,0],linestyle=opzioniplot['linestyle'])
+    if 'linestyle' in opzioniplot:
+      del opzioniplot['linestyle']
+    plt.errorbar(x,residui,yerr=sy,fmt='o',**opzioniplot)
+    try:
+      massim=max(sy)
+    except:
+      massim=sy
+    plt.ylim(-max(np.abs(residui)*1.1+massim),max(np.abs(residui)*1.1+massim))
+  from scipy.odr import RealData, Model, ODR
+  def fun(param, x):
+    return param[0] * x + param[1]
+  if sx==0: #se si trascurano le incertezze sulle x non va, allora le assumo piccolissime
+    sx=1e-60
+  if sy==0: #se si trascurano le incertezze sulle x non va, allora le assumo piccolissime
+    sy=1e-60
+  model = Model(fun)
+  data = RealData(x, y, sx=sx, sy=sy)
+  odr = ODR(data, model, beta0=[pendenza,intercetta])
+  resultt = odr.run()
+  cov = resultt.cov_beta[1][0] 
+  matrice = [[intercetta,erroreintercetta],[pendenza,errorependenza],cov]
+  return matrice
+
   return matrice
 
 #ERRORE A POSTERIORI per RETTA:
