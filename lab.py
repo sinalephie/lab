@@ -20,6 +20,7 @@ try:
   is_dark = output.eval_js('document.documentElement.matches("[theme=dark]")')
 except ModuleNotFoundError:
   pass
+from collections.abc import Sequence
 
 #VARIABILI
 # Immagini
@@ -621,6 +622,10 @@ def fit(x,sx,y,sy,**kwargs):
     kwargs['xsinistra']=min(x)
   if not 'xdestra' in kwargs:
     kwargs['xdestra']=max(x)
+  if isinstance(sy,Sequence):
+    sy=list(sy)
+  if isinstance(sx,Sequence):
+    sx=list(sx)
   def caso1(x,y,sy):
       delta=N*somma(potenza(x,2))-(somma(x))**2
       intercetta=(1/delta)*(somma(potenza(x,2))*somma(y)-somma(x)*somma(moltiplica(x,y)))
