@@ -719,28 +719,6 @@ def fit(x,sx,y,sy,**kwargs):
     lex=np.array([kwargs['xsinistra'] - spazio,kwargs['xdestra'] + spazio])
     ley=pendenza*lex + intercetta
     plt.plot(lex,ley,**opzioniplot)
-  if kwargs['residui']==True:
-    if kwargs['plot']==True:
-      plt.figure()
-    if 'capsize' not in opzioniplot:
-      opzioniplot['capsize']=2
-    if 'linestyle' not in opzioniplot:
-      opzioniplot['linestyle']='-'
-    import matplotlib.pyplot as plt
-    residui=[]
-    for c in range (len(x)):
-      residuo=y[c]-(pendenza*x[c]+intercetta)
-      residui.append(residuo)
-    lex=np.array([kwargs['xsinistra'] - spazio,kwargs['xdestra'] + spazio])
-    plt.plot(lex,[0,0],linestyle=opzioniplot['linestyle'])
-    if 'linestyle' in opzioniplot:
-      del opzioniplot['linestyle']
-    plt.errorbar(x,residui,yerr=sy,fmt='o',**opzioniplot)
-      try:
-        massim=max(sy)
-      except:
-        massim=sy
-      plt.ylim(-max(np.abs(residui)*1.1+massim),max(np.abs(residui)*1.1+massim))
   return matrice
 
 #ERRORE A POSTERIORI per RETTA:
