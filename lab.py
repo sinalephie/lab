@@ -624,7 +624,7 @@ def fit(x,sx,y,sy,**kwargs):
     kwargs['xdestra']=max(x)
   if not isinstance (sy,(int,float)):
     sy=list(sy)
-  if not isinstance(sx,(int float)):
+  if not isinstance(sx,(int,float)):
     sx=list(sx)
   def caso1(x,y,sy):
       delta=N*somma(potenza(x,2))-(somma(x))**2
