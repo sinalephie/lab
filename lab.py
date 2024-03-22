@@ -135,6 +135,7 @@ def guarda(*links,**kwargs):
     progresso+=1
     display(HTML(html_code1))
     out.update(barra_progresso(progresso, len(immagini)+1))
+    print('')
     return
   for link in links:
     presente=False
@@ -163,6 +164,7 @@ def guarda(*links,**kwargs):
       html_code += f"\n    <img src='{immagine}' style='margin-right: 10px; height: {kwargs['size']}px;'>"
   html_code += "\n</div>"
   display(HTML(html_code))
+  print('')
 
 
 #FUNZIONI
