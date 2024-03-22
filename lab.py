@@ -337,8 +337,6 @@ def stdmedia(*lista):
 
 def chi2retta(x,y,sy,retta,**kwargs):
     print('')
-    print('')
-    print('')
     from IPython.display import display
     if not 'ddof' in kwargs:
         kwargs['ddof']=len(x)-2
@@ -370,8 +368,6 @@ def chi2retta(x,y,sy,retta,**kwargs):
     return pvalue
 
 def chi2(funzione,*args,**kwargs):
-    print('')
-    print('')
     print('')
     from IPython.display import display
     parametri=args[0]
