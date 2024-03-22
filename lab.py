@@ -362,9 +362,8 @@ def chi2retta(x,y,sy,retta,**kwargs):
     if kwargs['tabella']==True:
         stampa(['                                  tabella chi quadro     '])
         display(tabella)
-        stampa([f'il p-value del chi quadro è: {pvalue}',35])
-        return pvalue
     stampa([f'il p-value del chi quadro è: {pvalue}',35])
+    print('')
     return pvalue
 
 def chi2(funzione,*args,**kwargs):
