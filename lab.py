@@ -508,6 +508,26 @@ def somma(*argomento):
                 listarisultante[b]=listarisultante[b]+args[c][b]
         return listarisultante
 
+
+
+def residui(funzione,parametri,x,y,sy,**kwargs):
+  print('')
+  if 'capsize' not in kwargs:
+    kwargs['capsize']=2
+  plt.figure()
+  spazio=abs(min(x)-max(x))*0.08
+  residui=[]
+  for c in range (len(x)):
+    residuo = y[c]-funzione(x[c],*parametri)
+    residui.append(residuo)
+  lex=np.array([min(x) - spazio,max(x) + spazio])
+  plt.plot(lex,[0,0])
+  plt.errorbar(x,residui,yerr=sy,fmt='o',**kwargs)
+  try:
+    massim=max(sy)
+  except:
+    massim=sy
+  plt.ylim(-max(np.abs(residui)*1.1+massim),max(np.abs(residui)*1.1+massim))
 #FIT LINEARE: fa il fit secondo uno dei 3 casi presenti nelle dispense di Doro
 #             IN BREVE: se trascurate le incertezze in ascissa mettete 0 al posto di sx e se le incertezze sono tutte uguali potete mettere il singolo valore in argomento.
 #                       se fate quello che c'è scritto nella riga sopra non importa che caso usate: i risultati sono esattamente gli stessi, quindi vi basta sapere quanto scritto prima (vedi riga sintassi)
@@ -755,8 +775,6 @@ def fit(x,sx,y,sy,**kwargs):
   resultt = odr.run()
   cov = resultt.cov_beta[1][0] 
   matrice = [[intercetta,erroreintercetta],[pendenza,errorependenza],cov]
-  return matrice
-
   return matrice
 
 #ERRORE A POSTERIORI per RETTA:
