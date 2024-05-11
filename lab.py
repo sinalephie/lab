@@ -69,11 +69,11 @@ def riordina(*args,**kwargs):
     lista=[]
     for c in range(len(args)):
         args[c]=np.array(args[c])
-        lista.append(list(args[c][indici]))
+        lista.append(np.array(args[c][indici]))
     if len(args)==0:
-        return lista[0]
+        return np.array(lista[0])
     else:
-        return lista
+        return np.array(lista)
 def stile(a):
   plt.style.use('default')
   c=['default','labs/librerie_aggiuntive/SciencePlots/stile.mplstyle','labs/librerie_aggiuntive/SciencePlots/stile 2.mplstyle','labs/librerie_aggiuntive/SciencePlots/science.mplstyle','Solarize_Light2','_classic_test_patch','bmh','classic', 'dark_background','fast','fivethirtyeight','ggplot','grayscale','seaborn-v0_8','seaborn-v0_8-bright','seaborn-v0_8-colorblind','seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette','seaborn-v0_8-darkgrid','seaborn-v0_8-deep','seaborn-v0_8-muted','seaborn-v0_8-notebook','seaborn-v0_8-paper','seaborn-v0_8-pastel', 'seaborn-v0_8-poster','seaborn-v0_8-talk','seaborn-v0_8-ticks','seaborn-v0_8-white','seaborn-v0_8-whitegrid','tableau-colorblind10']
