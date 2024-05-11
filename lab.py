@@ -42,8 +42,8 @@ immagini['peppa pig'] =  'https://drive.google.com/file/d/1j_YUDemBk1yfvMVCVs8Ey
 immagini['oca'] = 'https://drive.google.com/file/d/1BmNPsgNSJs1rVLp1uk19zrFTE-U0g6BO/view?usp=drive_link'
 immagini['random 1'] = 'https://drive.google.com/file/d/1HqYKUZ7jTMPTc53aPCv1nFhk4CvgZiVV/view?usp=drive_link'
 immagini['random 2'] = 'https://drive.google.com/file/d/1zKswYGgEfyE7EskCfPXTxbhYhAREKmXY/view?usp=drive_link'
-
-
+def colorimatplotlib():
+  return print('https://i.stack.imgur.com/lFZum.png')
 
  # Suoni
 suoni = {}
