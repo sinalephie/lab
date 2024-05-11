@@ -51,7 +51,29 @@ suoni['capra'] = 'https://cdn.pixabay.com/download/audio/2023/11/20/audio_6d2ecb
 suoni['risposta corretta'] = 'https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=short-success-sound-glockenspiel-treasure-video-game-6346.mp3'
 suoni['yumi'] = 'https://drive.usercontent.google.com/download?id=1TYoZtfyXbDXGvBavp9RiizbyN5c3U_-A&export=download&authuser=0&confirm=t&uuid=3a4c1d91-4195-4fae-b9e5-0597cb84ab03&at=APZUnTUABAkfF1JVWil1TEKAXY4Y:1707948945711'
 
-
+def riordina(*args,**kwargs):
+    args=list(args)
+    if 'rispetto' not in kwargs:
+        kwargs['rispetto']=args[0]
+    x=kwargs['rispetto']
+    copia=list(x)
+    copia2=list(x)
+    indici=[]
+    for c in range(len(x)):
+        minimo=min(copia)
+        copia.remove(minimo)
+        indice=copia2.index(minimo)
+        copia2[indice]=minimo*0.012467421
+        indici.append(indice)
+    import numpy as np
+    lista=[]
+    for c in range(len(args)):
+        args[c]=np.array(args[c])
+        lista.append(list(args[c][indici]))
+    if len(args)==0:
+        return lista[0]
+    else:
+        return lista
 def stile(a):
   plt.style.use('default')
   c=['default','labs/librerie_aggiuntive/SciencePlots/stile.mplstyle','labs/librerie_aggiuntive/SciencePlots/stile 2.mplstyle','labs/librerie_aggiuntive/SciencePlots/science.mplstyle','Solarize_Light2','_classic_test_patch','bmh','classic', 'dark_background','fast','fivethirtyeight','ggplot','grayscale','seaborn-v0_8','seaborn-v0_8-bright','seaborn-v0_8-colorblind','seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette','seaborn-v0_8-darkgrid','seaborn-v0_8-deep','seaborn-v0_8-muted','seaborn-v0_8-notebook','seaborn-v0_8-paper','seaborn-v0_8-pastel', 'seaborn-v0_8-poster','seaborn-v0_8-talk','seaborn-v0_8-ticks','seaborn-v0_8-white','seaborn-v0_8-whitegrid','tableau-colorblind10']
@@ -212,6 +234,7 @@ def guida():
     print('https://colab.research.google.com/drive/1Lace8ZenxKYWlCYEODxErVbPpABbGp4G?usp=sharing')
 
 def interpola(x,y,**kwargs):
+  x,y=riordina(x,y)
   if 'smussa' not in kwargs:
     kwargs['smussa']=1
   from scipy.interpolate import UnivariateSpline
