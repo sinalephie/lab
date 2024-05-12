@@ -552,7 +552,20 @@ def somma(*argomento):
                 listarisultante[b]=listarisultante[b]+args[c][b]
         return listarisultante
 
-
+def cifresignificative(number, uncertainty):
+    significant_digits = -int(math.floor(math.log10(uncertainty)))
+    number_str = f"{number:.{significant_digits}f}"
+    uncertainty_str = f"_{{\\pm{uncertainty:.{significant_digits}f}}}"
+    formatted_string = f"${number_str}{uncertainty_str}$"
+    return formatted_string
+def misurelatex(misure,incertezze):
+    stringhe=[]
+    if len(misure) != len(incertezze):
+        raise ValueError('il numero di misure non corrisponde al numero d\'incertezze fornite, controlla che le due liste abbiano la stessa numerosità')
+    for c in range (len(misure)):
+      stringa=cifresignificative(misure[c],incertezze[c])
+      stringhe.append(stringa)
+    return stringhe
 
 def residui(funzione,parametri,x,y,sy,**kwargs):
   print('')
