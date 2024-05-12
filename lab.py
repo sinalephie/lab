@@ -74,7 +74,11 @@ def riordina(*args,**kwargs):
         return np.array(lista[0])
     else:
         return np.array(lista)
-def stile(a,linee=True,scatter=True,riempimento=True):
+def stile(a,linee=True,scatter=True,riempimento=True,colore_assi='white',colore_sfondo='white'):
+  if colore_assi != 'white':
+    plt.gca().set_facecolor(f'{colore_assi}')
+  if colore_sfondo != 'white':
+    plt.gcf().set_facecolor(f'{colore_sfondo}')
   if a=='glow':
     from labs.librerie_aggiuntive.cyberpunk import make_lines_glow, add_underglow, make_scatter_glow
     if scatter==True:
