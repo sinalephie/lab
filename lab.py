@@ -96,7 +96,6 @@ def stile(a,linee=True,scatter=True,riempimento=True):
   else:
     try:
       ciao=f'labs/librerie_aggiuntive/SciencePlots/{a}.mplstyle'
-      print(ciao)
       plt.style.use(ciao)
       return 
     except:
