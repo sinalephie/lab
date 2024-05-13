@@ -74,7 +74,9 @@ def riordina(*args,**kwargs):
         return np.array(lista[0])
     else:
         return np.array(lista)
-def stile(a,linee=True,scatter=True,riempimento=True,colore_assi='white',colore_sfondo='white'):
+def stile(a,linee=True,scatter=True,riempimento=True,colore_assi='white',colore_sfondo='white',fontsize=12):
+  if fontsize != 12:
+    plt.rcParams.update({'font.size': fontsize})
   if colore_assi != 'white':
     plt.gca().set_facecolor(f'{colore_assi}')
   if colore_sfondo != 'white':
