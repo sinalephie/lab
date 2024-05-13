@@ -78,9 +78,9 @@ def stile(a,linee=True,scatter=True,riempimento=True,colore_assi='white',colore_
   if fontsize != 12:
     plt.rcParams.update({'font.size': fontsize})
   if colore_assi != 'white':
-    plt.gca().set_facecolor(f'{colore_assi}')
+    plt.gcf().set_facecolor(f'{colore_assi}')
   if colore_sfondo != 'white':
-    plt.gcf().set_facecolor(f'{colore_sfondo}')
+    plt.gca().set_facecolor(f'{colore_sfondo}')
   if a=='glow':
     from labs.librerie_aggiuntive.cyberpunk import make_lines_glow, add_underglow, make_scatter_glow
     if scatter==True:
