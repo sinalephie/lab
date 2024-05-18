@@ -92,58 +92,6 @@ def stile(a,linee=True,scatter=True,riempimento=True,colore_assi='white',colore_
       add_underglow()
     return
   plt.style.use('default')
-  if a=='CMS' or a=='ROOT':
-    from cycler import cycler
-    cmap_petroff = ["#5790fc", "#f89c20", "#e42536", "#964a8b", "#9c9ca1", "#7a21dd"]
-    CMS = {
-        "axes.prop_cycle": cycler("color", cmap_petroff),
-        "font.sans-serif": ["TeX Gyre Heros", "Helvetica", "Arial"],
-        "font.family": "sans-serif",
-        "mathtext.fontset": "custom",
-        "mathtext.rm": "TeX Gyre Heros",
-        "mathtext.bf": "TeX Gyre Heros:bold",
-        "mathtext.sf": "TeX Gyre Heros",
-        "mathtext.it": "TeX Gyre Heros:italic",
-        "mathtext.tt": "TeX Gyre Heros",
-        "mathtext.cal": "TeX Gyre Heros",
-        "mathtext.default": "regular",
-        "figure.figsize": (10.0, 10.0),
-        "font.size": 26,
-        "axes.labelsize": "medium",
-        "axes.unicode_minus": False,
-        "xtick.labelsize": "small",
-        "ytick.labelsize": "small",
-        "legend.fontsize": "small",
-        "legend.handlelength": 1.5,
-        "legend.borderpad": 0.5,
-        "legend.frameon": False,
-        "xtick.direction": "in",
-        "xtick.major.size": 12,
-        "xtick.minor.size": 6,
-        "xtick.major.pad": 6,
-        "xtick.top": True,
-        "xtick.major.top": True,
-        "xtick.major.bottom": True,
-        "xtick.minor.top": True,
-        "xtick.minor.bottom": True,
-        "xtick.minor.visible": True,
-        "ytick.direction": "in",
-        "ytick.major.size": 12,
-        "ytick.minor.size": 6.0,
-        "ytick.right": True,
-        "ytick.major.left": True,
-        "ytick.major.right": True,
-        "ytick.minor.left": True,
-        "ytick.minor.right": True,
-        "ytick.minor.visible": True,
-        "grid.alpha": 0.8,
-        "grid.linestyle": ":",
-        "axes.linewidth": 2,
-        "savefig.transparent": False,
-        "xaxis.labellocation": "right",
-        "yaxis.labellocation": "top",
-    }
-    plt.rcParams.update(CMS)
   c=['default','labs/librerie_aggiuntive/SciencePlots/stile.mplstyle','labs/librerie_aggiuntive/SciencePlots/stile 2.mplstyle','labs/librerie_aggiuntive/SciencePlots/science.mplstyle','Solarize_Light2','_classic_test_patch','bmh','classic', 'dark_background','fast','fivethirtyeight','ggplot','grayscale','seaborn-v0_8','seaborn-v0_8-bright','seaborn-v0_8-colorblind','seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette','seaborn-v0_8-darkgrid','seaborn-v0_8-deep','seaborn-v0_8-muted','seaborn-v0_8-notebook','seaborn-v0_8-paper','seaborn-v0_8-pastel', 'seaborn-v0_8-poster','seaborn-v0_8-talk','seaborn-v0_8-ticks','seaborn-v0_8-white','seaborn-v0_8-whitegrid','tableau-colorblind10']
   if isinstance(a,int):
     try:
