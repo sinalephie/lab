@@ -60,8 +60,6 @@ savefig.dpi: 300
 savefig.format: png
 savefig.bbox: tight
 
-# Testo
-text.usetex: True
 
 # Subplot
 figure.subplot.left: 0.125
