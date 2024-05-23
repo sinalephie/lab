@@ -514,7 +514,7 @@ def moltiplica(*argomento):
                     lista.append(args[a])
                 args[a]=lista
         listarisultante=[1]*len(args[indice])
-        for g in range(len(args):
+        for g in range(len(args)):
             args[g]=list(args[g])
         for b in range(0,len(args[0])):
             for c in range(0,len(args)):
