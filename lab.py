@@ -81,7 +81,7 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
   if colore_sfondo != 'white':
     plt.gca().set_facecolor(f'{colore_sfondo}')
   from labs.librerie_aggiuntive.cyberpunk import make_lines_glow, add_underglow, make_scatter_glow
-  if glow_scatter:
+  if glow_punti:
     make_scatter_glow()
   if glow_linee:
     make_lines_glow()
