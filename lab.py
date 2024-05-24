@@ -1086,7 +1086,7 @@ def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color
         indici.reverse()
         minimi.reverse()
     if 'plot' in kwargs:
-        lista, kwargs['plot'] = riordina (lista, kwargs['plot'], rispetto= kwargs['plot'])
+        y,x = riordina (lista, list(kwargs['plot']), rispetto= list(kwargs['plot']))
         x=np.array(kwargs['plot'])
         y=np.array(lista)
         x1=x[indici]
@@ -1117,7 +1117,7 @@ def massimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,colo
         indici.reverse()
         massimi.reverse()
     if 'plot' in kwargs:
-        lista, kwargs['plot'] = riordina (lista, kwargs['plot'], rispetto= kwargs['plot'])
+        y,x = riordina (lista, list(kwargs['plot']), rispetto= list(kwargs['plot']))
         x=np.array(kwargs['plot'])
         y=np.array(lista)
         x1=x[indici]
