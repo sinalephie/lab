@@ -1097,7 +1097,7 @@ def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color
 
 
 
-def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color='purple',**kwargs):
+def massimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color='purple',**kwargs):
     import numpy as np
     indici=[]
     massimi=[]
