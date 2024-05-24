@@ -427,7 +427,6 @@ def chi2(funzione,*args,stampa=False,**kwargs):
     args=list(args)
     if isinstance(args[0],(int, float,np.int64,np.int32,np.float64,np.float32)):
       args[0] = [args[0]]
-    print('')
     from IPython.display import display
     parametri=args[0]
     x=args[1]
@@ -459,8 +458,9 @@ def chi2(funzione,*args,stampa=False,**kwargs):
         display(tabella)
         stampa([f'il p-value del chi quadro è: {pvalue}',35])
     if stampa:
+        print('')
         stampa([f'il p-value del chi quadro è: {pvalue}',35])
-    print('')
+        print('')
     return pvalue
 
 
