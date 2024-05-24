@@ -1070,6 +1070,7 @@ def excel(lista, stringa,**kwargs):
     return  df.to_excel(nomefile, index=False)
 
 def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color='purple',**kwargs):
+    lista = riordina(lista)
     import numpy as np
     indici=[]
     minimi=[]
@@ -1081,8 +1082,10 @@ def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color
         indici.reverse()
         minimi.reverse()
     if 'plot' in kwargs:
+        
         x=np.array(kwargs['plot'])
         y=np.array(lista)
+        x,y = riordina(x,y,rispetto=x)
         x1=x[indici]
         y1=y[indici]
         #plt.errorbar(x1,y1,yerr=max(y)*0.1,elinewidth=0.5,fmt='None',color=color)
