@@ -390,6 +390,9 @@ def stdmedia(*lista):
 
 
 def chi2retta(x,y,sy,retta,**kwargs):
+    from collections import namedtuple
+    if isinstance (retta,namedtuple):
+      retta = [[retta.intercetta,retta.s_intercetta],[retta.pendenza,retta.s_pendenza],retta.covarianza]
     print('')
     from IPython.display import display
     if not 'ddof' in kwargs:
