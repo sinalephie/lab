@@ -813,7 +813,7 @@ def fitlin(x,sx,y,sy,**kwargs):
   resultt = odr.run()
   cov = resultt.cov_beta[1][0] 
   from collections import namedtuple
-  matrice = namedtuple('parametri_del_fit', ['intercetta', 's_intercetta','pendenza','s_pendenza','covarianza'])
+  matrice = namedtuple('parametri_dall_interpolazione', ['intercetta', 's_intercetta','pendenza','s_pendenza','covarianza'])
   matrice = matrice(intercetta=intercetta, s_intercetta=erroreintercetta,pendenza=pendenza,s_pendenza=errorependenza,covarianza=cov)
   return matrice
 
