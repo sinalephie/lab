@@ -1082,10 +1082,9 @@ def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color
         indici.reverse()
         minimi.reverse()
     if 'plot' in kwargs:
-        
+        lista, kwargs['plot'] = riordina (lista, kwargs['plot'], rispetto= kwargs['plot'])
         x=np.array(kwargs['plot'])
         y=np.array(lista)
-        x,y = riordina(x,y,rispetto=x)
         x1=x[indici]
         y1=y[indici]
         #plt.errorbar(x1,y1,yerr=max(y)*0.1,elinewidth=0.5,fmt='None',color=color)
@@ -1103,6 +1102,7 @@ def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color
 
 def massimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color='purple',**kwargs):
     import numpy as np
+    lista = riordina(lista)
     indici=[]
     massimi=[]
     for c in range(soglia, len(lista)-soglia):
@@ -1113,6 +1113,7 @@ def massimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,colo
         indici.reverse()
         massimi.reverse()
     if 'plot' in kwargs:
+        lista, kwargs['plot'] = riordina (lista, kwargs['plot'], rispetto= kwargs['plot'])
         x=np.array(kwargs['plot'])
         y=np.array(lista)
         x1=x[indici]
