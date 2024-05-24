@@ -1073,7 +1073,6 @@ def excel(lista, stringa,**kwargs):
     return  df.to_excel(nomefile, index=False)
 
 def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color='purple',**kwargs):
-    lista = riordina(lista)
     import numpy as np
     indici=[]
     minimi=[]
@@ -1105,7 +1104,6 @@ def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color
 
 def massimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color='purple',**kwargs):
     import numpy as np
-    lista = riordina(lista)
     indici=[]
     massimi=[]
     for c in range(soglia, len(lista)-soglia):
