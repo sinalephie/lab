@@ -74,59 +74,57 @@ def riordina(*args,**kwargs):
         return np.array(lista[0])
     else:
         return np.array(lista)
-def stile(a,linee=True,scatter=True,riempimento=True,colore_assi='white',colore_sfondo='white',fontsize=12):
-  plt.style.use('default')
-  if fontsize != 12:
-    plt.rcParams.update({'font.size': fontsize})
+def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='white',fontsize=12):
+  
   if colore_assi != 'white':
     plt.gcf().set_facecolor(f'{colore_assi}')
   if colore_sfondo != 'white':
     plt.gca().set_facecolor(f'{colore_sfondo}')
-
-  if a=='glow':
-    from labs.librerie_aggiuntive.cyberpunk import make_lines_glow, add_underglow, make_scatter_glow
-    if scatter==True:
-      make_scatter_glow()
-    if linee==True:
-      make_lines_glow()
-    if riempimento==True:
-      add_underglow()
-    return
-  c=['default','labs/librerie_aggiuntive/SciencePlots/stile.mplstyle','labs/librerie_aggiuntive/SciencePlots/stile 2.mplstyle','labs/librerie_aggiuntive/SciencePlots/science.mplstyle','Solarize_Light2','_classic_test_patch','bmh','classic', 'dark_background','fast','fivethirtyeight','ggplot','grayscale','seaborn-v0_8','seaborn-v0_8-bright','seaborn-v0_8-colorblind','seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette','seaborn-v0_8-darkgrid','seaborn-v0_8-deep','seaborn-v0_8-muted','seaborn-v0_8-notebook','seaborn-v0_8-paper','seaborn-v0_8-pastel', 'seaborn-v0_8-poster','seaborn-v0_8-talk','seaborn-v0_8-ticks','seaborn-v0_8-white','seaborn-v0_8-whitegrid','tableau-colorblind10']
-  if isinstance(a,int):
+  from labs.librerie_aggiuntive.cyberpunk import make_lines_glow, add_underglow, make_scatter_glow
+  if scatter==True:
+    make_scatter_glow()
+  if linee==True:
+    make_lines_glow()
+  if riempimento==True:
+    add_underglow()
+  if len(args)!=0:
+    plt.style.use('default')
+    for a in args: 
+      c=['default','labs/librerie_aggiuntive/SciencePlots/stile.mplstyle','labs/librerie_aggiuntive/SciencePlots/stile 2.mplstyle','labs/librerie_aggiuntive/SciencePlots/science.mplstyle','Solarize_Light2','_classic_test_patch','bmh','classic', 'dark_background','fast','fivethirtyeight','ggplot','grayscale','seaborn-v0_8','seaborn-v0_8-bright','seaborn-v0_8-colorblind','seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette','seaborn-v0_8-darkgrid','seaborn-v0_8-deep','seaborn-v0_8-muted','seaborn-v0_8-notebook','seaborn-v0_8-paper','seaborn-v0_8-pastel', 'seaborn-v0_8-poster','seaborn-v0_8-talk','seaborn-v0_8-ticks','seaborn-v0_8-white','seaborn-v0_8-whitegrid','tableau-colorblind10']
+      if isinstance(a,int):
+        try:
+          plt.style.use(c[a])
+          return
+        except:
+          plt.style.use('default')
+          return 
+      else:
+        try:
+          ciao=f'labs/librerie_aggiuntive/SciencePlots/{a}.mplstyle'
+          plt.style.use(ciao)
+          return 
+        except:
+          plt.style.use('default')
+          return 
+  def linkdiretto(link):
+    import os, re, urllib,shutil
     try:
-      plt.style.use(c[a])
-      return
+        urllib.request.urlopen("https://www.google.com", timeout=3)
     except:
-      plt.style.use('default')
-      return 
-  else:
-    try:
-      ciao=f'labs/librerie_aggiuntive/SciencePlots/{a}.mplstyle'
-      plt.style.use(ciao)
-      return 
-    except:
-      plt.style.use('default')
-      return 
-def linkdiretto(link):
-  import os, re, urllib,shutil
-  try:
-      urllib.request.urlopen("https://www.google.com", timeout=3)
-  except:
-      raise ImportError('Sei offline, connettiti ad internet per importare dati')
-      return
-  if 'google' in link and 'file' in link and 'export' not in link:
-    file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
-    file_id = file_id_match.group(1) if file_id_match else None
-    link = f"https://drive.google.com/uc?export=download&id={file_id}"
-  if 'google' in link and 'docs' in link and 'spreadsheets' in link and 'usercontent' not in link and 'export' not in link:
-    file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
-    file_id = file_id_match.group(1) if file_id_match else None
-    link='https://docs.google.com/spreadsheets/d/'+ file_id + '/export?format=xlsx'
-  if '1drv' in link:
-    if 'files' in link:
-      link='https://api.onedrive.com/v1.0/shares/s!'+ link[link.find('!')+1:link.find('?')]+'/root/content'
-  return link
+        raise ImportError('Sei offline, connettiti ad internet per importare dati')
+        return
+    if 'google' in link and 'file' in link and 'export' not in link:
+      file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
+      file_id = file_id_match.group(1) if file_id_match else None
+      link = f"https://drive.google.com/uc?export=download&id={file_id}"
+    if 'google' in link and 'docs' in link and 'spreadsheets' in link and 'usercontent' not in link and 'export' not in link:
+      file_id_match = re.search(r'/d/([a-zA-Z0-9_-]+)', link)
+      file_id = file_id_match.group(1) if file_id_match else None
+      link='https://docs.google.com/spreadsheets/d/'+ file_id + '/export?format=xlsx'
+    if '1drv' in link:
+      if 'files' in link:
+        link='https://api.onedrive.com/v1.0/shares/s!'+ link[link.find('!')+1:link.find('?')]+'/root/content'
+    return link
 
 def barra_progresso(value, max=100):
     return HTML("""
