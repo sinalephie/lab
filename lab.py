@@ -424,6 +424,7 @@ def chi2retta(x,y,sy,retta,**kwargs):
     return pvalue
 
 def chi2(funzione,*args,**kwargs):
+    args=list(args)
     if isinstance(args[0],(int, float,np.int64,np.int32,np.float64,np.float32)):
       args[0] = [args[0]]
     print('')
