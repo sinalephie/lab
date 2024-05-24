@@ -1090,6 +1090,7 @@ def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color
         for c in range(len(x1)):
           testo=f'{c}'
           plt.text(x1[c],y1[c],testo,fontsize=fontsize,ha='center',va='top',color=color)
+          plt.scatter(x1[c],y1[c],s=2,color=color)
     if indici:
         return np.array(indici)
     else:
@@ -1118,6 +1119,7 @@ def massimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,colo
         for c in range(len(x1)):
           testo=f'{c}'
           plt.text(x1[c],y1[c],testo,fontsize=fontsize,ha='center',va='bottom',color=color)
+          plt.scatter(x1[c],y1[c],s=2,color=color)
     if indici:
         return np.array(indici)
     else:
