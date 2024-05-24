@@ -423,7 +423,7 @@ def chi2retta(x,y,sy,retta,**kwargs):
     print('')
     return pvalue
 
-def chi2(funzione,*args,**kwargs):
+def chi2(funzione,*args,stampa=False,**kwargs):
     args=list(args)
     if isinstance(args[0],(int, float,np.int64,np.int32,np.float64,np.float32)):
       args[0] = [args[0]]
@@ -457,7 +457,9 @@ def chi2(funzione,*args,**kwargs):
     if kwargs['tabella']==True:
         stampa(['                                  tabella chi quadro     '])
         display(tabella)
-    stampa([f'il p-value del chi quadro è: {pvalue}',35])
+        stampa([f'il p-value del chi quadro è: {pvalue}',35])
+    if stampa:
+        stampa([f'il p-value del chi quadro è: {pvalue}',35])
     print('')
     return pvalue
 
