@@ -461,7 +461,7 @@ def chi2(funzione,*args,stampa=False,**kwargs):
         print('')
         stampa([f'il p-value del chi quadro è: {pvalue}',35])
         print('')
-    return pvalue
+    return sum(chi2singoli)
 
 
 
