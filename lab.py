@@ -1074,7 +1074,7 @@ def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color
     indici=[]
     minimi=[]
     for c in range(soglia, len(lista)-soglia):
-        if lista[c+1]>lista[c] and lista[c-1]>lista[c] and lista[c+soglia>lista[c] and lista[c-soglia]>lista[c]:
+        if lista[c+1]>lista[c] and lista[c-1]>lista[c] and lista[c+soglia]>lista[c] and lista[c-soglia]>lista[c]:
             indici.append(c)
             minimi.append(lista[c])
     if contrario:
@@ -1102,7 +1102,7 @@ def massimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,colo
     indici=[]
     massimi=[]
     for c in range(soglia, len(lista)-soglia):
-        if lista[c+1]<lista[c] and lista[c-1]<lista[c] and lista[c+soglia<lista[c] and lista[c-soglia]<lista[c]:
+        if lista[c+1]<lista[c] and lista[c-1]<lista[c] and lista[c+soglia]<lista[c] and lista[c-soglia]<lista[c]:
             indici.append(c)
             massimi.append(lista[c])
     if contrario:
