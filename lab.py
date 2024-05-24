@@ -1069,23 +1069,15 @@ def excel(lista, stringa,**kwargs):
     df = pd.DataFrame(lista).transpose()
     return  df.to_excel(nomefile, index=False)
 
-def minimirelativi(lista,**kwargs):
+def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color='purple',**kwargs):
     import numpy as np
-    if not 'contrario' in kwargs:
-        kwargs['contrario']=False
-    if not 'soglia' in kwargs:
-        kwargs['soglia']=1
-    if not 'indici' in kwargs:
-        kwargs['indici']=False
-    if not 'fontsize' in kwargs:
-        kwargs['fontsize']=12
     indici=[]
     minimi=[]
-    for c in range(kwargs['soglia'], len(lista)-kwargs['soglia']):
-        if lista[c+1]>lista[c] and lista[c-1]>lista[c] and lista[c+kwargs['soglia']]>lista[c] and lista[c-kwargs['soglia']]>lista[c]:
+    for c in range(soglia, len(lista)-soglia):
+        if lista[c+1]>lista[c] and lista[c-1]>lista[c] and lista[c+soglia>lista[c] and lista[c-soglia]>lista[c]:
             indici.append(c)
             minimi.append(lista[c])
-    if kwargs['contrario']==True:
+    if contrario:
         indici.reverse()
         minimi.reverse()
     if 'plot' in kwargs:
@@ -1093,35 +1085,27 @@ def minimirelativi(lista,**kwargs):
         y=np.array(lista)
         x1=x[indici]
         y1=y[indici]
-        #plt.errorbar(x1,y1,yerr=max(y)*0.1,elinewidth=0.5,fmt='None',color='purple')
+        #plt.errorbar(x1,y1,yerr=max(y)*0.1,elinewidth=0.5,fmt='None',color=color)
         plt.plot(x,y)
         for c in range(len(x1)):
           testo=f'{c}'
-          plt.text(x1[c],y1[c],testo,fontsize=kwargs['fontsize'],ha='center',va='bottom',color='purple')
-    if kwargs['indici']==True:
+          plt.text(x1[c],y1[c],testo,fontsize=kwargs['fontsize'],ha='center',va='bottom',color=color)
+    if indici:
         return np.array(indici)
     else:
         return minimi
 
 
 
-def massimirelativi(lista,**kwargs):
+def minimirelativi(lista,soglia=1,indici=False,contrario=False,fontsize=12,color='purple',**kwargs):
     import numpy as np
-    if not 'contrario' in kwargs:
-        kwargs['contrario']=False
-    if not 'soglia' in kwargs:
-        kwargs['soglia']=1
-    if not 'indici' in kwargs:
-        kwargs['indici']=False
-    if not 'fontsize' in kwargs:
-        kwargs['fontsize']=12
     indici=[]
     massimi=[]
-    for c in range(kwargs['soglia'], len(lista)-kwargs['soglia']):
-        if lista[c+1]<lista[c] and lista[c-1]<lista[c] and lista[c+kwargs['soglia']]<lista[c] and lista[c-kwargs['soglia']]<lista[c]:
+    for c in range(soglia, len(lista)-soglia):
+        if lista[c+1]<lista[c] and lista[c-1]<lista[c] and lista[c+soglia<lista[c] and lista[c-soglia]<lista[c]:
             indici.append(c)
             massimi.append(lista[c])
-    if kwargs['contrario']==True:
+    if contrario:
         indici.reverse()
         massimi.reverse()
     if 'plot' in kwargs:
@@ -1129,15 +1113,16 @@ def massimirelativi(lista,**kwargs):
         y=np.array(lista)
         x1=x[indici]
         y1=y[indici]
-        #plt.errorbar(x1,y1,yerr=max(y)*0.1,elinewidth=0.5,fmt='None',color='purple')
+        #plt.errorbar(x1,y1,yerr=max(y)*0.1,elinewidth=0.5,fmt='None',color=color)
         plt.plot(x,y)
         for c in range(len(x1)):
           testo=f'{c}'
-          plt.text(x1[c],y1[c],testo,fontsize=kwargs['fontsize'],ha='center',va='bottom',color='purple')
-    if kwargs['indici']==True:
+          plt.text(x1[c],y1[c],testo,fontsize=kwargs['fontsize'],ha='center',va='bottom',color=color)
+    if indici:
         return np.array(indici)
     else:
         return massimi
+
 
 
 
