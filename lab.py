@@ -52,11 +52,12 @@ suoni['risposta corretta'] = 'https://cdn.pixabay.com/download/audio/2021/08/04/
 suoni['yumi'] = 'https://drive.usercontent.google.com/download?id=1TYoZtfyXbDXGvBavp9RiizbyN5c3U_-A&export=download&authuser=0&confirm=t&uuid=3a4c1d91-4195-4fae-b9e5-0597cb84ab03&at=APZUnTUABAkfF1JVWil1TEKAXY4Y:1707948945711'
 
 def riordina(*args,**kwargs):
+    import numpy as np
     args=list(args)
     if 'rispetto' not in kwargs:
         kwargs['rispetto']=args[0]
     if len(args[0])==1:
-      return numpy.array(sorted(list(args[0])))
+      return np.array(sorted(list(args[0])))
     x=kwargs['rispetto']
     copia=list(x)
     copia2=list(x)
