@@ -452,8 +452,8 @@ def chi2(funzione,*args,stampa=False,**kwargs):
         attese.append(attesa)
         chi2singolo=((y[c]-attesa)/sy[c])**2
         chi2singoli.append(chi2singolo)
-    pvalue= round(1 - chi2.cdf(sum(chi2singoli), kwargs['ddof']),2)
-    tabella=pd.DataFrame({'x_i':x,'y_i':y,'s_y':sy,'y_i*':attese,'chi2_i':chi2singoli,'chi2_m':sum(chi2singoli)})
+    #pvalue= round(1 - chi2.cdf(sum(chi2singoli), kwargs['ddof']),2)
+    #tabella=pd.DataFrame({'x_i':x,'y_i':y,'s_y':sy,'y_i*':attese,'chi2_i':chi2singoli,'chi2_m':sum(chi2singoli)})
     if kwargs['tabella']==True:
         stampa(['                                  tabella chi quadro     '])
         display(tabella)
