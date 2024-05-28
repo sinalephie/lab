@@ -433,6 +433,30 @@ def chi2(funzione,*args,stampa=False,**kwargs):
     x=args[1]
     y=args[2]
     sy=args[3]
+    if isinstance (sy,(int,float)):
+        incertezza=sy
+        lista=[]
+        for f in range (len(x)):
+            lista.append(sy)
+        sy=lista
+    chi2singoli=[]
+    attese=[]
+    for c in range (len(x)):
+        attesa=funzione(x[c],*parametri)
+        attese.append(attesa)
+        chi2singolo=((y[c]-attesa)/sy[c])**2
+        chi2singoli.append(chi2singolo)
+    return sum(chi2singoli)
+
+def chi2giusto(funzione,*args,stampa=False,**kwargs):
+    args=list(args)
+    if isinstance(args[0],(int, float,np.int64,np.int32,np.float64,np.float32)):
+      args[0] = [args[0]]
+    from IPython.display import display
+    parametri=args[0]
+    x=args[1]
+    y=args[2]
+    sy=args[3]
     if not 'ddof' in kwargs:
         kwargs['ddof']=len(x)-len(parametri)
     if not 'tabella' in kwargs:
@@ -452,8 +476,8 @@ def chi2(funzione,*args,stampa=False,**kwargs):
         attese.append(attesa)
         chi2singolo=((y[c]-attesa)/sy[c])**2
         chi2singoli.append(chi2singolo)
-    #pvalue= round(1 - chi2.cdf(sum(chi2singoli), kwargs['ddof']),2)
-    #tabella=pd.DataFrame({'x_i':x,'y_i':y,'s_y':sy,'y_i*':attese,'chi2_i':chi2singoli,'chi2_m':sum(chi2singoli)})
+    pvalue= round(1 - chi2.cdf(sum(chi2singoli), kwargs['ddof']),2)
+    tabella=pd.DataFrame({'x_i':x,'y_i':y,'s_y':sy,'y_i*':attese,'chi2_i':chi2singoli,'chi2_m':sum(chi2singoli)})
     if kwargs['tabella']==True:
         stampa(['                                  tabella chi quadro     '])
         display(tabella)
@@ -463,7 +487,6 @@ def chi2(funzione,*args,stampa=False,**kwargs):
         stampa([f'il p-value del chi quadro è: {pvalue}',35])
         print('')
     return sum(chi2singoli)
-
 
 
 #POTENZA: calcola la potenza di un numero o di una lista.
