@@ -595,7 +595,6 @@ def residui(funzione,parametri,x,y,sy,**kwargs):
   print('')
   if 'capsize' not in kwargs:
     kwargs['capsize']=2
-  plt.figure()
   spazio=abs(min(x)-max(x))*0.08
   residui=[]
   for c in range (len(x)):
