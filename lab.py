@@ -595,7 +595,13 @@ def somma(*argomento):
         return listarisultante
 
 def cifresignificative(number, uncertainty):
-    significant_digits = -int(math.floor(math.log10(uncertainty)))
+    # Calcola il numero di cifre significative per l'incertezza
+    if uncertainty > 0:
+        significant_digits = max(0, -int(math.floor(math.log10(uncertainty))))
+    else:
+        raise ValueError("L'incertezza deve essere maggiore di zero")
+    
+    # Formatta il numero e l'incertezza con il numero corretto di cifre significative
     number_str = f"{number:.{significant_digits}f}"
     uncertainty_str = f"_{{\\pm{uncertainty:.{significant_digits}f}}}"
     formatted_string = f"${number_str}{uncertainty_str}$"
