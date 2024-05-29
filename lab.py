@@ -458,7 +458,7 @@ def chi2(funzione,*args,stampa=False,**kwargs):
         stampa(['                                  tabella chi quadro     '])
         display(tabella)
         stampa([f'il p-value del chi quadro è: {pvalue}',35])
-    if stampa:
+    if mostra:
         print('')
         stampa([f'il p-value del chi quadro è: {pvalue}',35])
         print('')
