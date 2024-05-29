@@ -433,30 +433,6 @@ def chi2(funzione,*args,stampa=False,**kwargs):
     x=args[1]
     y=args[2]
     sy=args[3]
-    if isinstance (sy,(int,float)):
-        incertezza=sy
-        lista=[]
-        for f in range (len(x)):
-            lista.append(sy)
-        sy=lista
-    chi2singoli=[]
-    attese=[]
-    for c in range (len(x)):
-        attesa=funzione(x[c],*parametri)
-        attese.append(attesa)
-        chi2singolo=((y[c]-attesa)/sy[c])**2
-        chi2singoli.append(chi2singolo)
-    return sum(chi2singoli)
-
-def chi2giusto(funzione,*args,stampa=False,**kwargs):
-    args=list(args)
-    if isinstance(args[0],(int, float,np.int64,np.int32,np.float64,np.float32)):
-      args[0] = [args[0]]
-    from IPython.display import display
-    parametri=args[0]
-    x=args[1]
-    y=args[2]
-    sy=args[3]
     if not 'ddof' in kwargs:
         kwargs['ddof']=len(x)-len(parametri)
     if not 'tabella' in kwargs:
