@@ -390,7 +390,7 @@ def stdmedia(*lista):
 
 
 
-def chi2retta(x,y,sy,retta,**kwargs):
+def chi2retta(x,y,sy,retta,pvalue=False,**kwargs):
     from collections import namedtuple
     if hasattr(retta, '_fields'):
       retta = [[retta.intercetta,retta.s_intercetta],[retta.pendenza,retta.s_pendenza],retta.covarianza]
@@ -422,9 +422,11 @@ def chi2retta(x,y,sy,retta,**kwargs):
         display(tabella)
     stampa([f'il p-value del chi quadro è: {pvalue}',25])
     print('')
-    return pvalue
+    if p_value:
+      return pvalue
+    return sum(chi2singoli)
 
-def chi2(funzione,*args,mostra=False,**kwargs):
+def chi2(funzione,*args,p_value=False,mostra=False,**kwargs):
     args=list(args)
     if isinstance(args[0],(int, float,np.int64,np.int32,np.float64,np.float32)):
       args[0] = [args[0]]
@@ -462,6 +464,8 @@ def chi2(funzione,*args,mostra=False,**kwargs):
         print('')
         stampa([f'il p-value del chi quadro è: {pvalue}',35])
         print('')
+    if p_value:
+      return pvalue
     return sum(chi2singoli)
 
 
