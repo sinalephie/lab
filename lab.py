@@ -390,7 +390,7 @@ def stdmedia(*lista):
 
 
 
-def chi2retta(x,y,sy,retta,pvalue=False,**kwargs):
+def chi2retta(x,y,sy,retta,p_value=False,**kwargs):
     from collections import namedtuple
     if hasattr(retta, '_fields'):
       retta = [[retta.intercetta,retta.s_intercetta],[retta.pendenza,retta.s_pendenza],retta.covarianza]
