@@ -394,7 +394,6 @@ def chi2retta(x,y,sy,retta,pvalue=False,**kwargs):
     from collections import namedtuple
     if hasattr(retta, '_fields'):
       retta = [[retta.intercetta,retta.s_intercetta],[retta.pendenza,retta.s_pendenza],retta.covarianza]
-    print('')
     from IPython.display import display
     if not 'ddof' in kwargs:
         kwargs['ddof']=len(x)-2
@@ -420,7 +419,7 @@ def chi2retta(x,y,sy,retta,pvalue=False,**kwargs):
     if kwargs['tabella']==True:
         stampa(['                                  tabella chi quadro     '])
         display(tabella)
-    stampa([f'il p-value del chi quadro è: {pvalue}',25])
+    #stampa([f'il p-value del chi quadro è: {pvalue}',25])
     print('')
     if p_value:
       return pvalue
