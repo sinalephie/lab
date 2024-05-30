@@ -609,7 +609,7 @@ def residui(funzione,parametri,x,y,sy,colore='black',**kwargs):
     massim=sy
   plt.ylim(-max(np.abs(residui)*1.1+massim),max(np.abs(residui)*1.1+massim))
   
-def fitlin(x,sx,y,sy,**kwargs):
+def fitlin(x,sx,y,sy,colorelinea='blue',**kwargs):
   '''
   1. ESEMPIO
   
@@ -804,7 +804,7 @@ def fitlin(x,sx,y,sy,**kwargs):
       residuo=y[c]-(pendenza*x[c]+intercetta)
       residui.append(residuo)
     lex=np.array([kwargs['xsinistra'] - spazio,kwargs['xdestra'] + spazio])
-    plt.plot(lex,[0,0],linestyle=opzioniplot['linestyle'])
+    plt.plot(lex,[0,0],linestyle=opzioniplot['linestyle'],color=colorelinea)
     if 'linestyle' in opzioniplot:
       del opzioniplot['linestyle']
     plt.errorbar(x,residui,yerr=sy,fmt='o',**opzioniplot)
