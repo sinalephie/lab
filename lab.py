@@ -591,7 +591,7 @@ def misurelatex(misure,incertezze):
       stringhe.append(stringa)
     return stringhe
 
-def residui(funzione,parametri,x,y,sy,**kwargs):
+def residui(funzione,parametri,x,y,sy,colore='black',**kwargs):
   print('')
   if 'capsize' not in kwargs:
     kwargs['capsize']=2
@@ -601,7 +601,7 @@ def residui(funzione,parametri,x,y,sy,**kwargs):
     residuo = y[c]-funzione(x[c],*parametri)
     residui.append(residuo)
   lex=np.array([min(x) - spazio,max(x) + spazio])
-  plt.plot(lex,[0,0])
+  plt.plot(lex,[0,0],color=colore)
   plt.errorbar(x,residui,yerr=sy,fmt='o',**kwargs)
   try:
     massim=max(sy)
