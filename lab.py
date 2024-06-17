@@ -112,6 +112,13 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
           plt.style.use(ciao)
         except:
           plt.style.use('default')
+  if cartone:
+    import logging
+    import warnings
+    logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
+    with warnings.catch_warnings():
+      warnings.simplefilter("ignore")
+      plt.xkcd()
 def linkdiretto(link):
   import os, re, urllib,shutil
   try:
