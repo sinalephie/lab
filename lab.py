@@ -77,7 +77,7 @@ def riordina(*args,**kwargs):
         return np.array(lista[0])
     else:
         return np.array(lista)
-def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='white',cartone=False,fontsize=12):
+def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='white',fontsize=12):
   if colore_assi != 'white':
     plt.gcf().set_facecolor(f'{colore_assi}')
   if colore_sfondo != 'white':
@@ -100,7 +100,7 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
           plt.style.use('default')
       else:
         try:
-          if a='cartone':
+          if a=='cartone':
             import logging
             import warnings
             logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
@@ -112,13 +112,6 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
             plt.style.use(ciao)
         except:
           plt.style.use('default')
-  if cartone:
-    import logging
-    import warnings
-    logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
-    with warnings.catch_warnings():
-      warnings.simplefilter("ignore")
-      plt.xkcd()
 def linkdiretto(link):
   import os, re, urllib,shutil
   try:
