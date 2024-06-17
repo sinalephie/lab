@@ -104,18 +104,14 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
       if isinstance(a,int):
         try:
           plt.style.use(c[a])
-          return
         except:
           plt.style.use('default')
-          return 
       else:
         try:
           ciao=f'labs/librerie_aggiuntive/SciencePlots/{a}.mplstyle'
           plt.style.use(ciao)
-          return 
         except:
           plt.style.use('default')
-          return 
 def linkdiretto(link):
   import os, re, urllib,shutil
   try:
