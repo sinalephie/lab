@@ -103,6 +103,7 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
           if a=='cartone':
             import logging
             import warnings
+            logging.getLogger('matplotlib').setLevel(logging.ERROR)
             logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
             with warnings.catch_warnings():
               warnings.simplefilter("ignore")
