@@ -100,6 +100,14 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
           plt.style.use('default')
       else:
         try:
+          if a=='spazio':
+            plt.xlabel('$x\,(m)$')
+            plt.ylabel('$y\,(m)$')
+            plt.annotate('', xy=(4, 0), xytext=(0, 0),arrowprops=dict(facecolor='red', shrink=0.05))
+            plt.annotate('', xy=(0, 4), xytext=(0, 0),arrowprops=dict(facecolor='green', shrink=0.05))
+            plt.axhline(0, color='black', linewidth=0.5)
+            plt.axvline(0, color='black', linewidth=0.5)
+            plt.grid(color='gray', linestyle='--', linewidth=0.5)
           if a=='cartone':
             import logging
             import warnings
