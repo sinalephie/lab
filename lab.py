@@ -100,9 +100,9 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
           plt.style.use('default')
       else:
         try:
-          if a=='spazio':
-            plt.xlabel('$x\,(m)$')
-            plt.ylabel('$y\,(m)$')
+          if a=='assi cartesiani':
+            plt.xlabel('$x$')
+            plt.ylabel('$y$')
             xlim = plt.gca().get_xlim()
             ylim = plt.gca().get_ylim()
             plt.annotate('', xy=(xlim[1], 0), xytext=(xlim[0], 0),arrowprops=dict(facecolor='black', edgecolor='black', arrowstyle='->', lw=1))
@@ -112,7 +112,6 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
             plt.gca().spines['right'].set_visible(False)
             plt.gca().spines['bottom'].set_visible(False)
             plt.gca().spines['left'].set_visible(False)
-            plt.title('Spazio $2D$',fontsize=20)
           if a=='cartone':
             import logging
             import warnings
