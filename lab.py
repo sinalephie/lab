@@ -480,6 +480,17 @@ def chi2(funzione,*args,p_value=False,mostra=False,**kwargs):
     return sum(chi2singoli)
 
 
+def convfloat(lista):
+    import numpy as np
+    if isinstance(lista,(int, float,np.int64,np.int32,np.float64,np.float32)):
+        lista=float(lista)
+        return lista
+    else:
+        eh=[]
+        for c in lista:
+            eh.append(float(c))
+        return np.array(eh)
+
 #POTENZA: calcola la potenza di un numero o di una lista.
 #         nel caso della lista significa che ritorna la stessa lista inserita ma con ogni suo elemento elevato al certo numero inserito.
 
@@ -489,6 +500,7 @@ def chi2(funzione,*args,p_value=False,mostra=False,**kwargs):
 #         es: potenza(2,3) ----> 8
 #         es: potenza([2,4],-1) ----> [1/2, 1/4]
 def potenza(a,b):
+    a=convfloat(a)
     import numpy as np
     if isinstance(a,(int, float,np.int64,np.int32,np.float64,np.float32)):
         a=float(a)
@@ -709,6 +721,9 @@ def fitlin(x,sx,y,sy,colorelinea='blue',**kwargs):
   if not isinstance(sx,(int,float)):
     sx=list(sx)
   def caso1(x,y,sy):
+      x=convfloat(x)
+      y=convfloat(y)
+      sy=convfloat(sy)
       delta=N*somma(potenza(x,2))-(somma(x))**2
       intercetta=(1/delta)*(somma(potenza(x,2))*somma(y)-somma(x)*somma(moltiplica(x,y)))
       pendenza=(1/delta)*(N*somma(moltiplica(x,y))-somma(x)*somma(y))
@@ -716,6 +731,9 @@ def fitlin(x,sx,y,sy,colorelinea='blue',**kwargs):
       errorependenza=sy*((N/delta)**0.5)
       return [[intercetta,erroreintercetta],[pendenza,errorependenza]]
   def caso2(x,y,sy):
+      x=convfloat(x)
+      y=convfloat(y)
+      sy=convfloat(sy)
       delta=somma(moltiplica(1,potenza(sy,-2)))*somma(moltiplica(potenza(x,2),potenza(sy,-2)))-(somma(moltiplica(x,potenza(sy,-2))))**2
       intercetta=(1/delta)*(somma(moltiplica(potenza(x,2),potenza(sy,-2)))*somma(moltiplica(y,potenza(sy,-2)))-somma(moltiplica(x,potenza(sy,-2)))*somma(moltiplica(x,y,potenza(sy,-2))))
       pendenza=(1/delta)*(somma(moltiplica(1,potenza(sy,-2)))*somma(moltiplica(x,y,potenza(sy,-2)))-somma(moltiplica(x,potenza(sy,-2)))*somma(moltiplica(y,potenza(sy,-2))))
@@ -723,6 +741,10 @@ def fitlin(x,sx,y,sy,colorelinea='blue',**kwargs):
       errorependenza=((1/delta)*somma(moltiplica(1,potenza(sy,-2))))**0.5
       return [[intercetta,erroreintercetta],[pendenza,errorependenza]]
   def caso3(x,sx,y,sy):
+      x=convfloat(x)
+      y=convfloat(y)
+      sy=convfloat(sy)
+      sx=convfloat(sx)
       if isinstance (sy, (float, int)):
           retta=caso1(x,y,sy)
       if not isinstance (sy, (float, int)):
@@ -844,6 +866,8 @@ def fitlin(x,sx,y,sy,colorelinea='blue',**kwargs):
   matrice = namedtuple('parametri_dall_interpolazione', ['intercetta', 's_intercetta','pendenza','s_pendenza','covarianza'])
   matrice = matrice(intercetta=intercetta, s_intercetta=erroreintercetta,pendenza=pendenza,s_pendenza=errorependenza,covarianza=cov)
   return matrice
+
+
 
 def fit(x,sx,y,sy,**kwargs):
   '''
