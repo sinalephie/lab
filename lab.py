@@ -103,11 +103,16 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
           if a=='spazio':
             plt.xlabel('$x\,(m)$')
             plt.ylabel('$y\,(m)$')
-            plt.annotate('', xy=(4, 0), xytext=(0, 0),arrowprops=dict(facecolor='red', shrink=0.05))
-            plt.annotate('', xy=(0, 4), xytext=(0, 0),arrowprops=dict(facecolor='green', shrink=0.05))
-            plt.axhline(0, color='black', linewidth=0.5)
-            plt.axvline(0, color='black', linewidth=0.5)
+            xlim = plt.gca().get_xlim()
+            ylim = plt.gca().get_ylim()
+            plt.annotate('', xy=(xlim[1], 0), xytext=(xlim[0], 0),arrowprops=dict(facecolor='black', edgecolor='black', arrowstyle='->', lw=1))
+            plt.annotate('', xy=(0, ylim[1]), xytext=(0, ylim[0]),arrowprops=dict(facecolor='black', edgecolor='black', arrowstyle='->', lw=1))
             plt.grid(color='gray', linestyle='--', linewidth=0.5)
+            plt.gca().spines['top'].set_visible(False)
+            plt.gca().spines['right'].set_visible(False)
+            plt.gca().spines['bottom'].set_visible(False)
+            plt.gca().spines['left'].set_visible(False)
+            plt.title('Spazio $2D$',fontsize=20)
           if a=='cartone':
             import logging
             import warnings
