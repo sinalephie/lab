@@ -57,7 +57,7 @@ def riordina(*args,**kwargs):
     if 'rispetto' not in kwargs:
         kwargs['rispetto']=args[0]
     if len(args)==1:
-      return sorted(args[0])
+      return np.array(sorted(args[0]))
     x=kwargs['rispetto']
     copia=list(x)
     copia2=list(x)
