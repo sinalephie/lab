@@ -101,17 +101,33 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
       else:
         try:
           if a=='assi cartesiani':
-            plt.xlabel('$x$')
-            plt.ylabel('$y$')
+            plt.autoscale()
             xlim = plt.gca().get_xlim()
             ylim = plt.gca().get_ylim()
-            plt.annotate('', xy=(xlim[1], 0), xytext=(xlim[0], 0),arrowprops=dict(facecolor='black', edgecolor='black', arrowstyle='->', lw=1))
-            plt.annotate('', xy=(0, ylim[1]), xytext=(0, ylim[0]),arrowprops=dict(facecolor='black', edgecolor='black', arrowstyle='->', lw=1))
+            xmin, xmax = xlim
+            ymin, ymax = ylim
+            if xmin > 0:
+                xmin = -1
+            if ymin > 0:
+                ymin = -1
+            if xmax < 0:
+                xmax = 1
+            if ymax < 0:
+                ymax = 1
+            plt.xlim(xmin, xmax)
+            plt.ylim(ymin, ymax)
+            plt.annotate('', xy=(xmax, 0), xytext=(xmin, 0),
+                         arrowprops=dict(facecolor='black', edgecolor='black', arrowstyle='->', lw=1))
+            plt.annotate('', xy=(0, ymax), xytext=(0, ymin),
+                         arrowprops=dict(facecolor='black', edgecolor='black', arrowstyle='->', lw=1))
+            plt.axhline(0, color='black', linewidth=0.5)
+            plt.axvline(0, color='black', linewidth=0.5)
             plt.grid(color='gray', linestyle='--', linewidth=0.5)
             plt.gca().spines['top'].set_visible(False)
             plt.gca().spines['right'].set_visible(False)
             plt.gca().spines['bottom'].set_visible(False)
             plt.gca().spines['left'].set_visible(False)
+
           if a=='cartone':
             import logging
             import warnings
