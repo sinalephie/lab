@@ -101,7 +101,6 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
       else:
         try:
           if a=='assi cartesiani':
-            plt.autoscale()
             xlim = plt.gca().get_xlim()
             ylim = plt.gca().get_ylim()
             xmin, xmax = xlim
