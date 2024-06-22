@@ -114,8 +114,6 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
                 xmax = 1
             if ymax < 0:
                 ymax = 1
-            plt.xlim(xmin, xmax)
-            plt.ylim(ymin, ymax)
             plt.annotate('', xy=(xmax, 0), xytext=(xmin, 0),
                          arrowprops=dict(facecolor='black', edgecolor='black', arrowstyle='->', lw=1))
             plt.annotate('', xy=(0, ymax), xytext=(0, ymin),
