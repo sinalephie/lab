@@ -106,6 +106,8 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
             ylim = plt.gca().get_ylim()
             xmin, xmax = xlim
             ymin, ymax = ylim
+            plt.ylim(ymin, ymax)
+            plt.xlim(xmin, xmax)
             if xmin > 0:
                 xmin = -1
             if ymin > 0:
