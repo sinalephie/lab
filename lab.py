@@ -50,6 +50,22 @@ suoni = {}
 suoni['capra'] = 'https://cdn.pixabay.com/download/audio/2023/11/20/audio_6d2ecb8b19.mp3?filename=goat-sound-177346.mp3'
 suoni['risposta corretta'] = 'https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=short-success-sound-glockenspiel-treasure-video-game-6346.mp3'
 suoni['yumi'] = 'https://drive.usercontent.google.com/download?id=1TYoZtfyXbDXGvBavp9RiizbyN5c3U_-A&export=download&authuser=0&confirm=t&uuid=3a4c1d91-4195-4fae-b9e5-0597cb84ab03&at=APZUnTUABAkfF1JVWil1TEKAXY4Y:1707948945711'
+def box(*args, fontsize=10, loc='upper right', boxstyle='round', facecolor='white', alpha=0.8):
+    textstr = '\n'.join(args)
+    props = dict(boxstyle=boxstyle, facecolor=facecolor, alpha=alpha)
+    loc_dict = {
+        'upper right': (0.95, 0.95),
+        'upper left': (0.05, 0.95),
+        'lower right': (0.95, 0.05),
+        'lower left': (0.05, 0.05)
+    }
+    if loc not in loc_dict:
+        raise ValueError(f"loc deve essere una di {list(loc_dict.keys())}")
+    x, y = loc_dict[loc]
+    plt.gca().text(x, y, textstr, transform=plt.gca().transAxes, fontsize=fontsize,
+                   verticalalignment='top', horizontalalignment='right' if 'right' in loc else 'left', bbox=props)
+
+
 
 def riordina(*args,**kwargs):
     import numpy as np
