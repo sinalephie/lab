@@ -308,7 +308,7 @@ def guida():
     print('link alla guida funzioni \u2193 \u2193 \u2193')
     print('https://colab.research.google.com/drive/1Lace8ZenxKYWlCYEODxErVbPpABbGp4G?usp=sharing')
 
-def interpola(x,y,riempi=False,**kwargs):
+def interpola(x,y,riempi=False,riempi_alpha=0.5,**kwargs):
   x,y=riordina(x,y)
   if 'smussa' not in kwargs:
     kwargs['smussa']=1
@@ -323,7 +323,7 @@ def interpola(x,y,riempi=False,**kwargs):
     kwargs['color']='skyblue'
   if riempi:
     y_limit = plt.ylim()
-    plt.fill_between(x_new, y_new, y_limit[0],color=kwargs['color'],alpha=0.5)
+    plt.fill_between(x_new, y_new, y_limit[0],color=kwargs['color'],alpha=riempi_alpha)
   return
 
 #STAMPA (print) ma piu figa (grazie chatgpt)
