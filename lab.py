@@ -93,7 +93,7 @@ def riordina(*args,**kwargs):
         return np.array(lista[0])
     else:
         return np.array(lista)
-def stile(*args,ax=false,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='white',notazione_scientifica=False):
+def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='white',notazione_scientifica=False):
   if notazione_scientifica:
     def formattazione(x, pos):
       if np.isnan(x) or x == 0:
