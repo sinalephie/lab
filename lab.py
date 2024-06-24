@@ -93,11 +93,26 @@ def riordina(*args,**kwargs):
         return np.array(lista[0])
     else:
         return np.array(lista)
-def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='white',fontsize=12):
+def stile(*args,ax=false,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='white',notazione_scientifica=False):
+  if notazione_scientifica:
+    def formattazione(x, pos):
+      if np.isnan(x) or x == 0:
+          return "0"
+      exponent = int(np.floor(np.log10(abs(x))))
+      coeff = x / 10**exponent
+      return rf'${coeff:.0f}_{{\times10^{{{exponent}}}}}$'
+    import matplotlib.ticker as mticker
+    plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(formattazione))
+    plt.gca().tick_params(axis='y', labelsize=13) 
+    plt.gca().xaxis.set_major_formatter(mticker.FuncFormatter(formattazione))
+    plt.gca().tick_params(axis='x', labelsize=13) 
+    
   if colore_assi != 'white':
     plt.gcf().set_facecolor(f'{colore_assi}')
+    
   if colore_sfondo != 'white':
     plt.gca().set_facecolor(f'{colore_sfondo}')
+    
   from labs.librerie_aggiuntive.cyberpunk import make_lines_glow, add_underglow, make_scatter_glow
   if glow_punti:
     make_scatter_glow()
@@ -150,7 +165,7 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
             logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
             with warnings.catch_warnings():
               warnings.simplefilter("ignore")
-              plt.xkcd()
+              plt.xkcd(scale=1,length=1,randomness=1.073)
           else:
             ciao=f'labs/librerie_aggiuntive/SciencePlots/{a}.mplstyle'
             plt.style.use(ciao)
