@@ -329,7 +329,13 @@ def interpola(x,y,riempi=False,riempi_alpha=0.5,**kwargs):
   if 'smussa' not in kwargs:
     kwargs['smussa']=1
   from scipy.interpolate import UnivariateSpline
-  f = UnivariateSpline(x, y , s=kwargs['smussa']/10000*0.5)
+  import logging
+  import warnings
+  logging.getLogger('matplotlib').setLevel(logging.ERROR)
+  logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
+  with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    f = UnivariateSpline(x, y , s=kwargs['smussa']/10000*0.5)
   x_new = np.linspace(min(x), max(x), 200)
   y_new = f(x_new)
   if 'smussa' in kwargs:
