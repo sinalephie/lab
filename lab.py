@@ -66,6 +66,12 @@ def box(*args, fontsize=10, loc='upper right', boxstyle='round', facecolor='whit
                    verticalalignment='top', horizontalalignment='right' if 'right' in loc else 'left', bbox=props)
 
 
+def seleziona_colore():
+  import ipywidgets as widgets
+  from IPython.display import display
+  print('seleziona un colore dall riquadro quadrato e poi premi invio per avere il codice del colore in HTML')
+  color_picker = widgets.ColorPicker(concise=False,disabled=False)
+  display(color_picker)
 
 def riordina(*args,**kwargs):
     import numpy as np
