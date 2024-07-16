@@ -73,6 +73,17 @@ def seleziona_colore():
   color_picker = widgets.ColorPicker(concise=False,disabled=False)
   display(color_picker)
 
+def complementare(string):
+  string=string[1:]
+  r=int(string[0:2],16)
+  g=int(string[2:4],16)
+  b=int(string[4:6],16)
+  comp_r=255-r
+  comp_g=255-g
+  comp_b=255-b
+  comp_html_color = f"#{comp_r:02X}{comp_g:02X}{comp_b:02X}"
+  return comp_html_color
+
 def riordina(*args,**kwargs):
     import numpy as np
     args=list(args)
