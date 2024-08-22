@@ -138,7 +138,6 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
   if glow_linee:
     make_lines_glow()
   if riempimento:
-    plt.ticklabel_format(useMathText=False)
     add_underglow()
   if len(args)!=0:
     plt.style.use('default')
