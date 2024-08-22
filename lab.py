@@ -111,7 +111,8 @@ def riordina(*args,**kwargs):
     else:
         return np.array(lista)
 def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='white',notazione_scientifica=False):
-  plt.ticklabel_format(useMathText=True)
+  if plt.gca().get_xscale() != 'log':
+    plt.ticklabel_format(useMathText=True)
   if notazione_scientifica:
     def formattazione(x, pos):
       if np.isnan(x) or x == 0:
