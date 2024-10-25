@@ -376,7 +376,7 @@ def interpola(x,y,riempi=False,riempi_alpha=0.5,**kwargs):
 #                        misura=40
 #                        stampa([f'la tua misura è {misura}','blue'])
 
-def stampa(frase, grandezza=18, colore='inherit'):
+def stampa(frase, size=18, colore='inherit'):
     if isinstance(grandezza, str):
         colore, grandezza = grandezza, 18
     stile = f"style='font-size: {grandezza}px; display: inline-block; color: {colore}; white-space: pre;'"
