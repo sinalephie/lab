@@ -209,6 +209,9 @@ def linkdiretto(link):
   if '1drv' in link:
     if 'files' in link:
       link='https://api.onedrive.com/v1.0/shares/s!'+ link[link.find('!')+1:link.find('?')]+'/root/content'
+  if 'sharepoint' in link:
+    if "?e=" in link:
+        link = link.split("?e=")[0] + "?download=1"
   return link
 
 def barra_progresso(value, max=100):
