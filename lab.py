@@ -111,21 +111,6 @@ def riordina(*args,**kwargs):
     else:
         return np.array(lista)
 def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='white',notazione_scientifica=False):
-  if plt.gca().get_xscale() != 'log' and plt.gca().get_yscale() != 'log':
-    plt.ticklabel_format(useMathText=True)
-  if notazione_scientifica:
-    def formattazione(x, pos):
-      if np.isnan(x) or x == 0:
-          return "0"
-      exponent = int(np.floor(np.log10(abs(x))))
-      coeff = x / 10**exponent
-      return rf'${coeff:.0f}_{{\times10^{{{exponent}}}}}$'
-    import matplotlib.ticker as mticker
-    plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(formattazione))
-    plt.gca().tick_params(axis='y', labelsize=13) 
-    plt.gca().xaxis.set_major_formatter(mticker.FuncFormatter(formattazione))
-    plt.gca().tick_params(axis='x', labelsize=13) 
-    
   if colore_assi != 'white':
     plt.gcf().set_facecolor(f'{colore_assi}')
     
@@ -141,13 +126,13 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
     add_underglow()
   if len(args)!=0:
     plt.style.use('default')
-    plt.style.use('default')
     for a in args: 
       c=['default','labs/librerie_aggiuntive/SciencePlots/stile.mplstyle','labs/librerie_aggiuntive/SciencePlots/stile 2.mplstyle','labs/librerie_aggiuntive/SciencePlots/science.mplstyle','Solarize_Light2','_classic_test_patch','bmh','classic', 'dark_background','fast','fivethirtyeight','ggplot','grayscale','seaborn-v0_8','seaborn-v0_8-bright','seaborn-v0_8-colorblind','seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette','seaborn-v0_8-darkgrid','seaborn-v0_8-deep','seaborn-v0_8-muted','seaborn-v0_8-notebook','seaborn-v0_8-paper','seaborn-v0_8-pastel', 'seaborn-v0_8-poster','seaborn-v0_8-talk','seaborn-v0_8-ticks','seaborn-v0_8-white','seaborn-v0_8-whitegrid','tableau-colorblind10']
       if isinstance(a,int):
         try:
           plt.style.use(c[a])
         except:
+        
           plt.style.use('default')
       else:
         try:
@@ -191,6 +176,20 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi=
             plt.style.use(ciao)
         except:
           plt.style.use('default')
+  if plt.gca().get_xscale() != 'log' and plt.gca().get_yscale() != 'log':
+    plt.ticklabel_format(useMathText=True)
+  if notazione_scientifica:
+    def formattazione(x, pos):
+      if np.isnan(x) or x == 0:
+          return "0"
+      exponent = int(np.floor(np.log10(abs(x))))
+      coeff = x / 10**exponent
+      return rf'${coeff:.0f}_{{\times10^{{{exponent}}}}}$'
+    import matplotlib.ticker as mticker
+    plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(formattazione))
+    plt.gca().tick_params(axis='y', labelsize=13) 
+    plt.gca().xaxis.set_major_formatter(mticker.FuncFormatter(formattazione))
+    plt.gca().tick_params(axis='x', labelsize=13) 
 def linkdiretto(link):
   import os, re, urllib,shutil
   try:
