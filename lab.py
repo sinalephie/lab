@@ -725,7 +725,7 @@ def residui(funzione,parametri,x,y,sy,colore='black',**kwargs):
     massim=sy
   plt.ylim(-max(np.abs(residui)*1.1+massim),max(np.abs(residui)*1.1+massim))
   
-def fitlin(x,sx,y,sy,colorelinea='blue',**kwargs):
+def fitlin(x,sx,y,sy,colorelinea=None,**kwargs):
   '''
   1. ESEMPIO
   
@@ -792,6 +792,7 @@ def fitlin(x,sx,y,sy,colorelinea='blue',**kwargs):
     kwargs['plot']=False
   if not 'residui' in kwargs:
     kwargs['residui']=False
+    
   N=len(x) #  Numerosità
   if len(x)!=len(y):
       raise ValueError('la numerosità delle misure in ascissa è diverse da quelle in ordinata')
