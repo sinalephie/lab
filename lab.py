@@ -110,10 +110,16 @@ def riordina(*args,**kwargs):
         return np.array(lista[0])
     else:
         return np.array(lista)
-def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='white',notazione_scientifica=False):
-  if colore_assi != 'white':
-    plt.gcf().set_facecolor(f'{colore_assi}')
-    
+def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='bordo',notazione_scientifica=False,colore_assi=None):
+  if colore_bordo != 'white':
+    plt.gcf().set_facecolor(f'{colore_bordo}')
+  if colore_assi:
+    ax = plt.gca()  # Ottieni gli assi correnti
+    ax.spines['top'].set_color(colore_assi)    # Colore del bordo superiore
+    ax.spines['right'].set_color(colore_assi)  # Colore del bordo destro
+    ax.spines['left'].set_color(colore_assi)   # Colore del bordo sinistro
+    ax.spines['bottom'].set_color(colore_assi)  # Colore del bordo inferiore
+    ax.tick_params(axis='both', colors='colore_assi')  # Colore dei tick e delle etichette dei tick
   if colore_sfondo != 'white':
     plt.gca().set_facecolor(f'{colore_sfondo}')
     
