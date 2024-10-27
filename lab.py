@@ -110,7 +110,7 @@ def riordina(*args,**kwargs):
         return np.array(lista[0])
     else:
         return np.array(lista)
-def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_assi='white',colore_sfondo='bordo',notazione_scientifica=False,colore_assi=None):
+def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_bordo='white',colore_sfondo='bordo',notazione_scientifica=False,colore_assi=None):
   if colore_bordo != 'white':
     plt.gcf().set_facecolor(f'{colore_bordo}')
   if colore_assi:
