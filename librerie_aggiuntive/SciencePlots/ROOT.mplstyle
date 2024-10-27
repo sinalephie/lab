@@ -5,12 +5,6 @@ lines.linewidth: 1.0
 lines.linestyle: -
 lines.color: blue
 
-# Marker
-lines.marker: o
-lines.markerfacecolor: red
-lines.markeredgewidth: 1.5
-lines.markersize: 8
-
 # Font
 font.family: sans-serif
 font.sans-serif: DejaVu Sans
