@@ -114,12 +114,12 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_bordo
   if colore_bordo != 'white':
     plt.gcf().set_facecolor(f'{colore_bordo}')
   if colore_assi:
-    ax = plt.gca()  # Ottieni gli assi correnti
-    ax.spines['top'].set_color(colore_assi)    # Colore del bordo superiore
-    ax.spines['right'].set_color(colore_assi)  # Colore del bordo destro
-    ax.spines['left'].set_color(colore_assi)   # Colore del bordo sinistro
-    ax.spines['bottom'].set_color(colore_assi)  # Colore del bordo inferiore
-    ax.tick_params(axis='both', colors='colore_assi')  # Colore dei tick e delle etichette dei tick
+    ax = plt.gca()  
+    ax.spines['top'].set_color(colore_assi)   
+    ax.spines['right'].set_color(colore_assi)  
+    ax.spines['left'].set_color(colore_assi)   
+    ax.spines['bottom'].set_color(colore_assi)  
+    ax.tick_params(axis='both', colors='colore_assi')  
   if colore_sfondo != 'white':
     plt.gca().set_facecolor(f'{colore_sfondo}')
     
