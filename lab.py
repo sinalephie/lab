@@ -119,7 +119,7 @@ def stile(*args,glow_linee=False,glow_punti=False,riempimento=False,colore_bordo
     ax.spines['right'].set_color(colore_assi)  
     ax.spines['left'].set_color(colore_assi)   
     ax.spines['bottom'].set_color(colore_assi)  
-    ax.tick_params(axis='both', colors='colore_assi')  
+    ax.tick_params(axis='both', colors=colore_assi)  
   if colore_sfondo != 'white':
     plt.gca().set_facecolor(f'{colore_sfondo}')
     
